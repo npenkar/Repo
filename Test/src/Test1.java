@@ -144,7 +144,6 @@ public class Test1
 						WebElement img2l = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[1]/div/div/div/div/div[3]/span/span[3]/img"));
 						String img2 = img2l.getAttribute("src");
 					
-		//				driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/ul/li[3]/a/img")).click();
 						Thread.sleep(600);
 						WebElement element3 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/ul/li[3]/a/img"));
 						JavascriptExecutor executor3 = (JavascriptExecutor) driver;
@@ -155,19 +154,19 @@ public class Test1
 		//			images save
 						URL img0URL = new URL(img1);
 						BufferedImage saveImage00 = ImageIO.read(img0URL);
-						ImageIO.write(saveImage00, "png", new File("img0.png"));
+						ImageIO.write(saveImage00, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img0.png"));
 					
 						URL img1URL = new URL(img1);
 						BufferedImage saveImage01 = ImageIO.read(img1URL);
-						ImageIO.write(saveImage01, "png", new File("img1.png"));
+						ImageIO.write(saveImage01, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img1.png"));
 					
 						URL img2URL = new URL(img2);
 						BufferedImage saveImage02 = ImageIO.read(img2URL);
-						ImageIO.write(saveImage02, "png", new File("img2.png"));
+						ImageIO.write(saveImage02, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img2.png"));
 				    
 						URL img3URL = new URL(img3);
 						BufferedImage saveImage03 = ImageIO.read(img3URL);
-						ImageIO.write(saveImage03, "png", new File("img3.png"));
+						ImageIO.write(saveImage03, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img3.png"));
 		//		    images saved on local
 				   
 						String MRP = driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='product-detail-page']/div[2]/div[1]/div[2]/div[3]/div[3]/span[1]/span[1]")).getText();
