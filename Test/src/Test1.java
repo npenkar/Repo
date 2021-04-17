@@ -1,4 +1,8 @@
 import java.awt.AWTException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -47,9 +51,13 @@ public class Test1
 		String addnewproduct = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/new?bnid=home_offi_offi_prin_comp";
 		String search = "https://mkp.gem.gov.in/home/search?q=";
 
+		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(0);
+		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(1);
+		System.out.println("	Reading Username and Password from file... ");
+		
 		driver.manage().window().maximize();
 		driver.get(login);
-		driver.findElement(By.id("loginid")).sendKeys("GOHIL@123");
+		driver.findElement(By.id("loginid")).sendKeys(uname);
 		Thread.sleep(100);
 		driver.findElement(By.xpath("/html[1]/body[1]/section[5]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[4]/div[2]/button[1]")).click();
 		Thread.sleep(100);
@@ -57,7 +65,7 @@ public class Test1
 		Thread.sleep(600);
 		driver.findElement(By.xpath("//input[@id='password']")).click();
 		driver.findElement(By.xpath("//input[@id='password']")).clear();
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Pc@12345");
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(pwd);
 		Thread.sleep(600);
 		Thread.sleep(600);
 		driver.findElement(By.cssSelector("#loginFrm>div.row>div:nth-child(1)>button")).click();
