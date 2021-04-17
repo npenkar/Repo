@@ -1,7 +1,5 @@
 import java.awt.AWTException;
-import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -25,8 +23,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-
 import com.google.common.base.CharMatcher;
 
 public class Test1 
@@ -37,13 +33,8 @@ public class Test1
 		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
-//		Start Chrome		//
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		
-//		Start Firefox 		//
-//		System.setProperty("webdriver.gecko.driver", "C:\\Np\\Dev\\Eclipse\\Workspace\\Test\\src\\geckodriver.exe");
-//		WebDriver driver = new FirefoxDriver();
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
@@ -81,6 +72,7 @@ public class Test1
 		int count = 0;
 		System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
 		System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
+		
 //		for loop start
 		for (int i = 0; i < rowcount; ) 
 		{
