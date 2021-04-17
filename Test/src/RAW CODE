@@ -1,0 +1,50 @@
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Driver;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Test1 {
+	public static void main(String[] args) throws InterruptedException, AWTException {
+	System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+	
+	WebDriver driver = new ChromeDriver();
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	
+    String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
+	String addnewproduct = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/new?bnid=home_offi_offi_prin_comp";
+	String homepage = "https://gem.gov.in/";
+
+	driver.get(login);
+	driver.manage().window().maximize();
+	driver.findElement(By.id("loginid")).sendKeys("RAMA@12"); 
+	driver.findElement(By.id("captcha_math")).click();
+	Thread.sleep(10000);
+	driver.findElement(By.cssSelector("#loginFrm>div.row>div:nth-child(2)>button")).click();
+//	Thread.sleep(8000);
+	driver.findElement(By.id("password")).clear();
+	driver.findElement(By.id("password")).sendKeys("Rnc@12345");
+	driver.findElement(By.cssSelector("#loginFrm>div.row>div:nth-child(1)>button")).click();
+	driver.get(addnewproduct);
+	Thread.sleep(5000);
+	Robot robot = new Robot();                          
+	robot.keyPress(KeyEvent.VK_CONTROL); 
+	robot.keyPress(KeyEvent.VK_T); 
+	robot.keyRelease(KeyEvent.VK_CONTROL); 
+	robot.keyRelease(KeyEvent.VK_T);
+	
+	driver.get(homepage);
+	
+	
+	
+	
+	driver.quit();	
+	}
+
+}
