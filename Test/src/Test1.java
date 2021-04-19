@@ -151,18 +151,18 @@ public class Test1
 						String img1 = img1a.getAttribute("src");
 						Thread.sleep(600);
 		
-						WebElement element2 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/ul/li[2]/a/img"));
-						JavascriptExecutor executor2 = (JavascriptExecutor) driver;
-						executor2.executeScript("arguments[0].click();", element2);
-						WebElement img2l = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[1]/div/div/div/div/div[3]/span/span[3]/img"));
-						String img2 = img2l.getAttribute("src");
-					
-						Thread.sleep(600);
-						WebElement element3 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/ul/li[3]/a/img"));
-						JavascriptExecutor executor3 = (JavascriptExecutor) driver;
-						executor3.executeScript("arguments[0].click();", element3);
-						WebElement img3l = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[1]/div/div/div/div/div[4]/span/span[3]/img"));
-						String img3 = img3l.getAttribute("src");
+//						WebElement element2 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/ul/li[2]/a/img"));
+//						JavascriptExecutor executor2 = (JavascriptExecutor) driver;
+//						executor2.executeScript("arguments[0].click();", element2);
+//						WebElement img2l = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[1]/div/div/div/div/div[3]/span/span[3]/img"));
+//						String img2 = img2l.getAttribute("src");
+//					
+//						Thread.sleep(600);
+//						WebElement element3 = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[2]/div/ul/li[3]/a/img"));
+//						JavascriptExecutor executor3 = (JavascriptExecutor) driver;
+//						executor3.executeScript("arguments[0].click();", element3);
+//						WebElement img3l = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[1]/div[1]/div/div/div/div/div[4]/span/span[3]/img"));
+//						String img3 = img3l.getAttribute("src");
 					
 		//			images save
 						URL img0URL = new URL(img1);
@@ -173,11 +173,11 @@ public class Test1
 						BufferedImage saveImage01 = ImageIO.read(img1URL);
 						ImageIO.write(saveImage01, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img1.png"));
 					
-						URL img2URL = new URL(img2);
+						URL img2URL = new URL(img1);
 						BufferedImage saveImage02 = ImageIO.read(img2URL);
 						ImageIO.write(saveImage02, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img2.png"));
 				    
-						URL img3URL = new URL(img3);
+						URL img3URL = new URL(img1);
 						BufferedImage saveImage03 = ImageIO.read(img3URL);
 						ImageIO.write(saveImage03, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img3.png"));
 		//		    images saved on local
@@ -245,8 +245,8 @@ public class Test1
 						System.out.println(PrinterModel);
 						System.out.println(Yield);
 						System.out.println(img1);
-						System.out.println(img2);
-						System.out.println(img3);
+//						System.out.println(img2);
+//						System.out.println(img3);
 						System.out.println(MRPIntNew);
 						System.out.println(SellPriceIntNew);
 						System.out.println(SellPriceLowRate);
