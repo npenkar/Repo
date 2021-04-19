@@ -90,8 +90,7 @@ public class Test1
 				driver.navigate().refresh();
 			}
 			else 
-			{
-			
+			{			
 			if(driver.findElements(By.xpath("//div[contains(text(),'SEARCH :')]")).size() != 0)
 			{
 				System.out.println("		😠😠😠 गलत ID निकला बे गांडू 😠😠😠");
