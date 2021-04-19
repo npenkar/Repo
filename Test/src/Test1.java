@@ -85,6 +85,13 @@ public class Test1
 			Thread.sleep(600);
 			
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+			if(driver.getCurrentUrl() == search + ProductID)
+			{
+				driver.navigate().refresh();
+			}
+			else 
+			{
+			
 			if(driver.findElements(By.xpath("//div[contains(text(),'SEARCH :')]")).size() != 0)
 			{
 				System.out.println("		😠😠😠 गलत ID निकला बे गांडू 😠😠😠");
@@ -480,6 +487,7 @@ public class Test1
 					System.out.println("Execution time: " + ETS + " seconds");
 				}	
 			}
+		  }
 		}
 		 driver.close();
 	}
