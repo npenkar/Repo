@@ -30,8 +30,8 @@ public class Test1
 	public static void main(String[] args) throws InterruptedException, AWTException, Exception 
 	{
 		long start = System.currentTimeMillis();
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
-		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
+//		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
+//		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -63,7 +63,7 @@ public class Test1
 		Thread.sleep(600);
 		
 //		Read ProductID from Excel
-		File src = new File("C:\\MIX.xlsx"); 
+		File src = new File("C:\\Np\\Dev\\Eclipse\\MIX.xlsx"); 
 		FileInputStream fis = new FileInputStream(src);
 		@SuppressWarnings("resource")
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
@@ -85,12 +85,19 @@ public class Test1
 			Thread.sleep(600);
 			
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+			 if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request"))
+			 {
+				 driver.navigate().refresh();
+				 System.out.println("Error: page not loaded correctly ......., refreshing ... for " + ProductID);
+			 }
+			 else {
 			if(driver.getCurrentUrl() == search + ProductID)
 			{
 				driver.navigate().refresh();
+				System.out.println("Error: Url not loaded, refreshing ... " + ProductID);
 			}
 			else 
-			{			
+			{
 			if(driver.findElements(By.xpath("//div[contains(text(),'SEARCH :')]")).size() != 0)
 			{
 				System.out.println("		😠😠😠 गलत ID निकला बे गांडू 😠😠😠");
@@ -484,10 +491,10 @@ public class Test1
 					long ExecutionTime = (System.currentTimeMillis() - start);
 					long ETS = ExecutionTime / 1000;
 					System.out.println("Execution time: " + ETS + " seconds");
-				}	
-			}
-		  }
-		}
-		 driver.close();
+					}	
+					}
+				}
+			 }
+		}driver.close();
 	}
 }
