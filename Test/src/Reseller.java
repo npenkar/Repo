@@ -63,7 +63,7 @@ public class Reseller
 		Thread.sleep(600);
 		
 //		Read ProductID from Excel
-		File src = new File("C:\\Np\\Dev\\Eclipse\\MIX.xlsx"); 
+		File src = new File("C:\\Np\\Dev\\Eclipse\\Reseller.xlsx"); 
 		FileInputStream fis = new FileInputStream(src);
 		@SuppressWarnings("resource")
 		XSSFWorkbook wb = new XSSFWorkbook(fis);
