@@ -20,7 +20,7 @@ public class StockUpdate {
 		long start = System.currentTimeMillis(); 
 		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Workspace\\Test\\src\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver.exe");
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -58,7 +58,7 @@ public class StockUpdate {
 for(int i=0; i<500; i++)
 {	
 	
-	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li[11]/a")).click(); // PAGE5
+	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li[3]/a")).click(); // PAGE5
 
 		Thread.sleep(3000);
 	for(int j=1;j<=10;j++)
