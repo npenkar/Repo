@@ -254,17 +254,8 @@ public class Test1
 						
 						driver.get(addnewproduct);
 						Thread.sleep(600);
-						
-						WebElement accordion = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[1]/div/div[1]/h4/a/span/div/div[2]"));
-						String getAttribute = accordion.getAttribute("class");
-						System.out.println("	getAttribute: " + getAttribute);
-						
-						if(getAttribute.contains("input-group-item fa fa-2 circle-right fa-chevron-circle-right"))
-						{
-							accordion.click();
-						}
-						
 						driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form/div")).click(); //Accordion Opened.. 
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("MB Cartridge");
 						driver.findElement(By.name("copy_catalog_id")).sendKeys(ProductID);
 						Thread.sleep(600);
@@ -493,6 +484,8 @@ public class Test1
 					    	count++;
 					    	System.out.println("		कितना लिस्टिंग हुआ बे ????");
 					    	System.out.println("		Total " + count +" LISTING हुआ सरकार...");
+					
+						
 					}
 					Thread.sleep(600);
 					System.out.println("Case Pass!!!");
