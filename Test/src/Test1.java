@@ -85,7 +85,7 @@ public class Test1
 			Thread.sleep(600);
 			
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-			 if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request"))
+			 if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request") || driver.getPageSource().contains("GeM - Government e Marketplace : Service Unavailable"))
 			 {
 				 driver.navigate().refresh();
 				 System.out.println("Error: page not loaded correctly ......., refreshing ... for " + ProductID);
@@ -254,6 +254,11 @@ public class Test1
 						
 						driver.get(addnewproduct);
 						Thread.sleep(600);
+						 if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request") || driver.getPageSource().contains("GeM - Government e Marketplace : Service Unavailable"))
+						 {
+							 driver.navigate().refresh();
+							 System.out.println("Error: page not loaded correctly ......., refreshing ... for " + ProductID);
+						 }
 						driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form/div")).click(); //Accordion Opened.. 
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("MB Cartridge");
