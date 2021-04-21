@@ -30,8 +30,8 @@ public class Test1
 	public static void main(String[] args) throws InterruptedException, AWTException, Exception 
 	{
 		long start = System.currentTimeMillis();
-//		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
-//		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -254,6 +254,16 @@ public class Test1
 						
 						driver.get(addnewproduct);
 						Thread.sleep(600);
+						
+						WebElement accordion = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[1]/div/div[1]/h4/a/span/div/div[2]"));
+						String getAttribute = accordion.getAttribute("class");
+						System.out.println("	getAttribute: " + getAttribute);
+						
+						if(getAttribute.contains("input-group-item fa fa-2 circle-right fa-chevron-circle-right"))
+						{
+							accordion.click();
+						}
+						
 						driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("MB Cartridge");
 						driver.findElement(By.name("copy_catalog_id")).sendKeys(ProductID);
@@ -456,8 +466,6 @@ public class Test1
 						Thread.sleep(600);
 						WebElement publish = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/div[4]/div[3]/input[1]"));
 						JavascriptExecutor clickpublish = (JavascriptExecutor) driver;
-						clickpublish.executeScript("arguments[0].click();", publish);
-						Thread.sleep(600);
 						clickpublish.executeScript("arguments[0].click();", publish);
 						Thread.sleep(5000);
 						driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[1]")).click();
