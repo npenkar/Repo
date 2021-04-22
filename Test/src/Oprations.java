@@ -1,11 +1,9 @@
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Oprations {
@@ -19,7 +17,8 @@ public class Oprations {
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
-		String addnewproduct = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/new?bnid=home_offi_offi_prin_comp";
+//		String addnewproduct = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/new?bnid=home_offi_offi_prin_comp";
+		String addnewproduct = "https://admin-mkp.gem.gov.in/#!/catalog/new?id=4153684-23347374817-cat&bnid=home_offi_offi_prin_comp";
 
 		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(0);
 		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(1);
@@ -41,19 +40,30 @@ public class Oprations {
 		driver.findElement(By.cssSelector("#loginFrm>div.row>div:nth-child(1)>button")).click();
 		Thread.sleep(600);
 		
-		driver.get(addnewproduct);
-		Thread.sleep(6000);
-		WebElement accordion = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[1]/div/div[1]/h4/a/span/div/div[2]"));
-		String getAttribute = accordion.getAttribute("class");
-		System.out.println("	getAttribute: " + getAttribute);
 		
-		if(getAttribute.contains("input-group-item fa fa-2 circle-right fa-chevron-circle-right"))
+		for(int i = 0; i<1000 ; i++)
 		{
-			accordion.click();
+		driver.get(addnewproduct);
+//		Thread.sleep(600);
+		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
+//		WebElement accordion = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[1]/div/div[1]/h4/a/span/div/div[2]"));
+//		String getAttribute = accordion.getAttribute("class");
+//		System.out.println("	getAttribute: " + getAttribute);
+		
+		String acc = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form/div")).getAttribute("class"); //uib-accordion-group
+		if(acc.contentEquals("panel-default ng-isolate-scope panel"))
+		{
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form/div")).click();
+			System.out.println("acc:  "+acc);
+			System.out.println(" ::::::::   acc OPEN KIYA BHAI ");
+		}
+		else {
+			System.out.println("acc:  "+acc);
+			System.out.println("acc already open hai ::::::: ");
 		}
 	
 	
 	}
 
-	
+	}
 }

@@ -260,7 +260,20 @@ public class Test1
 							 System.out.println("Error: page not loaded correctly ......., refreshing ... for " + ProductID);
 						 }
 						driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
-						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form/div")).click(); //Accordion Opened.. 
+
+						String accordion = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form/div")).getAttribute("class"); //uib-accordion-group
+						if(accordion.contentEquals("panel-default ng-isolate-scope panel"))
+						{
+							driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form/div")).click();
+//							System.out.println("accordion:  "+accordion);
+							System.out.println(" GENERAL INFORMATION opened now");
+						}
+						else 
+						{
+//							System.out.println("accordion:  "+accordion);
+							System.out.println(" GENERAL INFORMATION already opened");
+						}
+						
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("MB Cartridge");
 						driver.findElement(By.name("copy_catalog_id")).sendKeys(ProductID);
 						Thread.sleep(600);
