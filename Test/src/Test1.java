@@ -276,7 +276,7 @@ public class Test1
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[2]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[2]/input[1]")).sendKeys(OEMBrand + " " + OEMModelNew);
 						Thread.sleep(600);
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[2]/div[1]/div[2]/div[1]/fieldset[1]/div[7]/div[2]/button[1]")).click();
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 						
 						WebElement MRPImg = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[14]/div[4]/document-upload[1]/div[1]/fieldset[1]/div[2]/button[1]"));
 						MRPImg.click();
@@ -294,7 +294,7 @@ public class Test1
 						Thread.sleep(600);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 		
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("OEM");
 						Thread.sleep(600);
@@ -341,7 +341,7 @@ public class Test1
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[17]/div[7]/div[2]/input[1]")).sendKeys("10");
 						Thread.sleep(100);
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[18]/div[2]/button[1]")).click();
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 						
 						WebElement trademark = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[4]/document-upload[1]/div[1]/fieldset[1]/div[2]/button[1]"));
 						trademark.click();
@@ -358,7 +358,7 @@ public class Test1
 						Thread.sleep(600);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 		
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[1]/form-builder[1]/div[1]/div[1]/div[1]/fieldset[1]/div[3]/div[1]/div[2]/div[1]/element[1]/div[1]/input[1]")).clear();
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[1]/form-builder[1]/div[1]/div[1]/div[1]/fieldset[1]/div[3]/div[1]/div[2]/div[1]/element[1]/div[1]/input[1]")).sendKeys(OEMBrand);
@@ -372,7 +372,7 @@ public class Test1
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[4]/document-upload[1]/div[1]/fieldset[1]/div[2]/select[1]")).sendKeys("OEM Authorization Document");
 						Thread.sleep(600);
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/button[1]")).click();
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 						
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[5]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]")).click();
 						Thread.sleep(600);
@@ -388,7 +388,7 @@ public class Test1
 						Thread.sleep(600);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 								
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[5]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[1]/div[2]/div[1]/div[1]/button[1]")).click();
 						Thread.sleep(600);
@@ -404,7 +404,7 @@ public class Test1
 						Thread.sleep(600);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 		
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[5]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[1]/div[3]/div[1]/div[1]/button[1]")).click();
 						Thread.sleep(600);
@@ -420,7 +420,7 @@ public class Test1
 						Thread.sleep(600);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 		
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[5]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[1]/div[3]/div[1]/div[1]/button[1]")).click();
 						Thread.sleep(600);
@@ -436,12 +436,12 @@ public class Test1
 						Thread.sleep(600);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 					
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[5]/div[1]/div[2]/div[1]/fieldset[1]/div[4]/div[2]/input[1]")).click();
 						Thread.sleep(600);
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[5]/div[1]/div[2]/div[1]/fieldset[1]/div[5]/div[2]/button[1]")).click();
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 		
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div/a")).click();
 						Thread.sleep(600);
@@ -461,7 +461,7 @@ public class Test1
 						WebElement publish = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/div[4]/div[3]/input[1]"));
 						JavascriptExecutor clickpublish = (JavascriptExecutor) driver;
 						clickpublish.executeScript("arguments[0].click();", publish);
-						Thread.sleep(4000);
+						Thread.sleep(3600);
 						driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[1]")).click();
 						Thread.sleep(600);
 						driver.get(addnewproduct);
