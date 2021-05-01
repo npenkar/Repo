@@ -37,5 +37,6 @@
 	<classpathentry kind="lib" path="C:/Np/Dev/Eclipse/Repo/Test/jars/xmlbeans-4.0.0.jar"/>
 	<classpathentry kind="lib" path="C:/Np/Dev/Eclipse/Repo/Test/jars/xmlgraphics-commons-2.4.jar"/>
 	<classpathentry kind="lib" path="C:/Np/Dev/Eclipse/Repo/Test/jars/xmlsec-2.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Np/Dev/Eclipse/Repo/Test/jars/selenium-java-4.0.0-beta-3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
