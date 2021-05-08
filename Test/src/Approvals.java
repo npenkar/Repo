@@ -25,7 +25,7 @@ public class Approvals
 
 		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
 		String pendinglist = "https://admin-mkp.gem.gov.in//cms/admin/catalog_approval#!/oem_approval_index/catalogs?category_id=home_offi_offi_prin_comp&make=11680&dceo_view=false";
-
+		int count = 1;
 		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\approvals.txt")).get(0);
 		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\approvals.txt")).get(1);
 		System.out.println("	get Username and Password ... ");
@@ -60,6 +60,7 @@ public class Approvals
 		}
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 		for(int j=1; j<=10; j++)
 		{
 		long start = System.currentTimeMillis();
@@ -88,7 +89,7 @@ public class Approvals
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		String Price = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/approval-component[1]/div[1]/div[2]/uib-accordion[1]/div[1]/div[2]/div[2]/div[1]/div[1]/seller-mrp[1]/table[1]/tbody[1]/tr[1]/td[1]/i[1]/font[1]")).getText();
 		System.out.println("	Price Ye hee ==> " + Price);
-		
+		Thread.sleep(500);
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/approval-component/div/div[3]/div/button[1]")).click();
 		Thread.sleep(300);
 		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/approval-component[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys("25");
@@ -101,7 +102,8 @@ public class Approvals
 		driver.switchTo().window(tabs.get(0));
 		
 		Thread.sleep(600);
-		System.out.println("Product Appoved Success !!!");
+		System.out.println("Product Appoved Success --> "+count);
+		count++;
 		long ExecutionTime = (System.currentTimeMillis() - start);
 		long ETS = ExecutionTime / 1000;
 		System.out.println("Time: " + ETS + " seconds");
