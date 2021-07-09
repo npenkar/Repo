@@ -78,7 +78,7 @@ public class YashResellerNew
 			driver.get(ProductSearch);
 			Thread.sleep(600);
 			
-			if(!(driver.getPageSource().contains("Gupta") || driver.getPageSource().contains("Rajput")))
+			if(!(driver.getPageSource().contains("Gupta") || driver.getPageSource().contains("Rajput") || driver.getPageSource().contains("Solanki") ||  driver.getPageSource().contains("Dinesh Chaudhari") || driver.getPageSource().contains("Velabhai Gohil") ||driver.getPageSource().contains("Rajesh Bhai Magha Bari") ))
 			{
 			driver.findElement(By.xpath("//body/div[@id='page']/div[@id='hd']/div[2]/div[1]/section[3]/section[1]/div[1]/div[1]/div[2]/ul[1]/li[2]")).click();
 			Thread.sleep(600);
