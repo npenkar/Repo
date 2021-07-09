@@ -87,16 +87,18 @@ public class YashResellerNew
 			{
 			
 			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-			 if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request"))
+			 if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request") || driver.getPageSource().contains("category is not available"))
 			 {
 				 driver.navigate().refresh();
 				 System.out.println("Error: page not loaded correctly ......., refreshing ... for " + ProductID);
 			 }
 			 else {
-			if(driver.getCurrentUrl() == search + ProductID)
+			if(driver.getPageSource().contains("category is not available"))
 			{
-				driver.navigate().refresh();
-				System.out.println("Error: Url not loaded, refreshing ... " + ProductID);
+				ws.removeRow(ws.getRow(0));
+				int lastrow = ws.getLastRowNum();
+				ws.shiftRows(i+1, lastrow, -1);
+				System.out.println("CATEGORY Hi Uda diye he be ...");
 			}
 			else 
 			{
