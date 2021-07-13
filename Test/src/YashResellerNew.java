@@ -184,7 +184,7 @@ public class YashResellerNew
 						driver.switchTo().window(tabs.get(1));
 						Thread.sleep(600);
 						driver.findElement(By.xpath("//button[contains(text(),'Ok')]")).click();
-						Thread.sleep(7000);
+						Thread.sleep(8000);
 		
 //						Resellers Details
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("Resellers");
@@ -283,7 +283,7 @@ public class YashResellerNew
 								Thread.sleep(100);
 							}
 						
-						Thread.sleep(1000);
+						Thread.sleep(3000);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/button")).click();
 						Thread.sleep(8000);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div/a")).click();
@@ -303,7 +303,7 @@ public class YashResellerNew
 						clickpublish.executeScript("arguments[0].click();", publish);
 						Thread.sleep(600);
 						clickpublish.executeScript("arguments[0].click();", publish);
-						Thread.sleep(7000);
+						Thread.sleep(8000);
 //						driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[1]")).click();
 						Thread.sleep(600);
 					
