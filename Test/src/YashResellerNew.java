@@ -270,6 +270,10 @@ public class YashResellerNew
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[16]/div[6]/div[2]/input[1]")).sendKeys("1");
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[16]/div[7]/div[2]/input[1]")).sendKeys("10");
 						Thread.sleep(100);
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[17]/div[2]/label/input")).click();
+						Thread.sleep(100);
+						driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div/div[1]/span")).click();
+						Thread.sleep(100);
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[18]/div[2]/button[1]")).click();
 						Thread.sleep(3000);
 						
