@@ -285,9 +285,9 @@ public class YashResellerNew
 						
 						Thread.sleep(1000);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/button")).click();
-						Thread.sleep(5000);
+						Thread.sleep(8000);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div/a")).click();
-						Thread.sleep(5000);
+						Thread.sleep(8000);
 						robot.keyPress(KeyEvent.VK_CONTROL);
 						robot.keyPress(KeyEvent.VK_W);
 						Thread.sleep(100);
@@ -303,7 +303,7 @@ public class YashResellerNew
 						clickpublish.executeScript("arguments[0].click();", publish);
 						Thread.sleep(600);
 						clickpublish.executeScript("arguments[0].click();", publish);
-						Thread.sleep(5000);
+						Thread.sleep(7000);
 //						driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[1]")).click();
 						Thread.sleep(600);
 					
