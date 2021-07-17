@@ -149,6 +149,7 @@ public class YashResellerNew
 						{
 							SellPriceLowRate = TempSellPriceLowRate - 10;
 						}
+						String SellPriceString = String.valueOf(SellPriceIntNew);
 						String FinalSellPrice = String.valueOf(SellPriceLowRate);
 
 						System.out.println(Make);
@@ -178,13 +179,13 @@ public class YashResellerNew
 							Thread.sleep(500);
 							
 						driver.findElement(By.xpath("//a[contains(text(),'Sell this item')]")).click();	
-						Thread.sleep(10000);
+						Thread.sleep(6000);
 						
 						ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 						driver.switchTo().window(tabs.get(1));
 						Thread.sleep(600);
 						driver.findElement(By.xpath("//button[contains(text(),'Ok')]")).click();
-						Thread.sleep(8000);
+						Thread.sleep(6000);
 		
 //						Resellers Details
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("Resellers");
@@ -240,8 +241,22 @@ public class YashResellerNew
 						Thread.sleep(100);
 //						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[14]/div[4]/document-upload[1]/div[1]/fieldset[1]/div[2]/select[1]")).sendKeys("Packaging Photo");
 						Thread.sleep(100);
-						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[14]/div[2]/input[1]")).sendKeys(FinalSellPrice);
+						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[14]/div[2]/input[1]")).sendKeys(SellPriceString);
 						Thread.sleep(600);
+// add stab
+						driver.findElement(By.xpath("//a[contains(text(),'+Add Slab')]")).click();
+						Thread.sleep(600);
+						driver.findElement(By.xpath("//tbody/tr[1]/td[2]/input[1]")).clear();
+						driver.findElement(By.xpath("//tbody/tr[1]/td[2]/input[1]")).sendKeys("2");
+						Thread.sleep(600);
+						driver.findElement(By.xpath("//tbody/tr[1]/td[3]/input[1]")).clear();
+						driver.findElement(By.xpath("//tbody/tr[1]/td[3]/input[1]")).sendKeys("200");
+						Thread.sleep(600);
+						driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).clear();
+						driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys("5");
+						Thread.sleep(600);
+						
+//	Select all state region 					
 						driver.findElement(By.xpath("//tbody/tr[1]/td[1]/input[1]")).click();
 						Thread.sleep(100);
 						driver.switchTo().alert().accept();
@@ -285,9 +300,9 @@ public class YashResellerNew
 						
 						Thread.sleep(3000);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/button")).click();
-						Thread.sleep(8000);
+						Thread.sleep(6000);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div/a")).click();
-						Thread.sleep(8000);
+						Thread.sleep(6000);
 						robot.keyPress(KeyEvent.VK_CONTROL);
 						robot.keyPress(KeyEvent.VK_W);
 						Thread.sleep(100);
@@ -303,7 +318,7 @@ public class YashResellerNew
 						clickpublish.executeScript("arguments[0].click();", publish);
 						Thread.sleep(600);
 						clickpublish.executeScript("arguments[0].click();", publish);
-						Thread.sleep(8000);
+						Thread.sleep(6000);
 //						driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[1]")).click();
 						Thread.sleep(600);
 					
