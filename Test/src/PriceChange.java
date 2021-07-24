@@ -97,6 +97,9 @@ public class PriceChange
 				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).clear();
 				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys("6");
 				Thread.sleep(600);
+				
+				driver.findElement(By.xpath("//button[contains(text(),'Update Stock')]")).click();
+				Thread.sleep(3000);
 			}
 			else
 			{
@@ -114,6 +117,7 @@ public class PriceChange
 			
 			driver.findElement(By.xpath("//button[contains(text(),'Update Stock')]")).click();
 			Thread.sleep(3000);
+			}
 			
 //			WRITE AND FILE CLOSED
 			FileOutputStream fio = new FileOutputStream(src);
@@ -137,6 +141,6 @@ public class PriceChange
 	    	System.out.println("================================================");			
 			Thread.sleep(500);
 		}
-		}
+		
 	}		
 }
