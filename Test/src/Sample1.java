@@ -29,7 +29,7 @@ public class Sample1 {
 	 * @throws AWTException
 	 */
 	public static void main(String[] args) throws InterruptedException, AWTException {
-	System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Workspace\\Test\\src\\chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Workspace\\Test\\src\\chromedriver92.exe");
 	long start = System.currentTimeMillis(); 
 	WebDriver driver = new ChromeDriver();
 	WebDriverWait wait = new WebDriverWait(driver, 30);
