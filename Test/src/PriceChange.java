@@ -76,7 +76,7 @@ public class PriceChange
 			System.out.println("Current String Price :: " + CurrentStringPrice);
 			String StringCurrentPrice = CharMatcher.inRange('0', '9').retainFrom(CurrentStringPrice);
 			int CurrentIntPrice = Integer.parseInt(StringCurrentPrice.replaceAll("[^0-9]", ""));
-			int UpdatedIntPrice = CurrentIntPrice - 5;
+			int UpdatedIntPrice = CurrentIntPrice - 2;
 			String UpdatedStringPrice = String.valueOf(UpdatedIntPrice);
 			System.out.println("Updated String Price :: " + UpdatedStringPrice);
 			
@@ -96,7 +96,7 @@ public class PriceChange
 				driver.findElement(By.xpath("//tbody/tr[1]/td[3]/input[1]")).sendKeys("200");
 				Thread.sleep(600);
 				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).clear();
-				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys("6");
+				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys(".20");
 				Thread.sleep(600);
 				
 				driver.findElement(By.xpath("//button[contains(text(),'Update Stock')]")).click();
