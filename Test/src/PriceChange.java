@@ -50,7 +50,6 @@ public class PriceChange
 		driver.findElement(By.cssSelector("#loginFrm>div.row>div:nth-child(1)>button")).click();
 		Thread.sleep(600);
 		
-//		Read CatalogueID from Excel
 		File src = new File("C:\\Np\\Dev\\Eclipse\\CatalogueID.xlsx"); 
 		FileInputStream fis = new FileInputStream(src);
 		@SuppressWarnings("resource")
