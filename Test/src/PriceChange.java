@@ -96,7 +96,7 @@ public class PriceChange
 				driver.findElement(By.xpath("//tbody/tr[1]/td[3]/input[1]")).sendKeys("200");
 				Thread.sleep(600);
 //				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).clear();
-				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys(".20");
+				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys(".45");
 				Thread.sleep(600);
 				
 				driver.findElement(By.xpath("//button[contains(text(),'Update Stock')]")).click();
@@ -113,7 +113,7 @@ public class PriceChange
 			driver.findElement(By.xpath("//tbody/tr[1]/td[3]/input[1]")).sendKeys("200");
 			Thread.sleep(600);
 //			driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).clear();
-			driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys(".20");
+			driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys(".45");
 			Thread.sleep(600);
 			
 			driver.findElement(By.xpath("//button[contains(text(),'Update Stock')]")).click();
