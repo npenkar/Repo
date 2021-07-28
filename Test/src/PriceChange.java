@@ -80,6 +80,15 @@ public class PriceChange
 			String UpdatedStringPrice = String.valueOf(UpdatedIntPrice);
 			System.out.println("Updated String Price :: " + UpdatedStringPrice);
 			
+			String CurrentStringPercentage = driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).getAttribute("value"); 
+			System.out.println("Current String Percentage :: " + CurrentStringPercentage);
+			float CurrentFloatPercentage = Float.parseFloat(CurrentStringPercentage);	
+			double PercentaddDouble = CurrentFloatPercentage + 0.22;
+			String PercentageFloat = String.format("%.2f", PercentaddDouble);
+			String StringFloatPrecent=String.valueOf(PercentageFloat);
+			System.out.println("Updated String Float Percentage :: " + StringFloatPrecent);
+			Thread.sleep(1000);
+			
 			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[14]/div[2]/input[1]")).clear();
 			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[14]/div[2]/input[1]")).sendKeys(UpdatedStringPrice);
 			Thread.sleep(1000);
@@ -95,8 +104,8 @@ public class PriceChange
 				driver.findElement(By.xpath("//tbody/tr[1]/td[3]/input[1]")).clear();
 				driver.findElement(By.xpath("//tbody/tr[1]/td[3]/input[1]")).sendKeys("200");
 				Thread.sleep(600);
-//				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).clear();
-				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys(".45");
+				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).clear();
+				driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys(StringFloatPrecent);
 				Thread.sleep(600);
 				
 				driver.findElement(By.xpath("//button[contains(text(),'Update Stock')]")).click();
@@ -104,7 +113,6 @@ public class PriceChange
 			}
 			else
 			{
-			
 			Thread.sleep(600);
 			driver.findElement(By.xpath("//tbody/tr[1]/td[2]/input[1]")).clear();
 			driver.findElement(By.xpath("//tbody/tr[1]/td[2]/input[1]")).sendKeys("2");
@@ -112,8 +120,8 @@ public class PriceChange
 			driver.findElement(By.xpath("//tbody/tr[1]/td[3]/input[1]")).clear();
 			driver.findElement(By.xpath("//tbody/tr[1]/td[3]/input[1]")).sendKeys("200");
 			Thread.sleep(600);
-//			driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).clear();
-			driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys(".45");
+			driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).clear();
+			driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).sendKeys(StringFloatPrecent);
 			Thread.sleep(600);
 			
 			driver.findElement(By.xpath("//button[contains(text(),'Update Stock')]")).click();
