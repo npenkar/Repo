@@ -83,7 +83,7 @@ public class PriceChange
 			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[14]/div[2]/input[1]")).clear();
 			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[14]/div[2]/input[1]")).sendKeys(UpdatedStringPrice);
 			Thread.sleep(1000);
-//		STAB TWEAKS
+
 			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 			if(driver.findElements(By.xpath("//a[contains(text(),'+Add Slab')]")).size() != 0)
 			{
