@@ -24,7 +24,7 @@ public class YashResellerNew
 	public static void main(String[] args) throws InterruptedException, AWTException, Exception 
 	{
 		long start = System.currentTimeMillis();
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver92.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver92.exe");
@@ -289,13 +289,11 @@ public class YashResellerNew
 //						checkbox tweaks
 						
 						if(driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[17]/div[2]/label/input")).getAttribute("disabled") != "disabled");
-//						WebElement checkbox = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[17]/div[2]/label/input"));
-//							if(checkbox.getAttribute("disabled") == "disabled");
 							{
 								driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[17]/div[2]/label/input")).click();
-								Thread.sleep(100);
-								driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset")).click();
-								Thread.sleep(100);
+								Thread.sleep(200);
+								driver.findElement(By.xpath("/html/body/div[1]")).click();
+								Thread.sleep(200);
 							}
 						
 						Thread.sleep(3000);
