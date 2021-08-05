@@ -60,7 +60,7 @@ public class Approvals
 		}
 		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
+//		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 		for(int j=1; j<=10; j++)
 		{
 		long start = System.currentTimeMillis();
