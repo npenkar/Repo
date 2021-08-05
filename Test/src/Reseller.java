@@ -254,7 +254,7 @@ public class Reseller
 						
 						driver.get(addnewproduct);
 						Thread.sleep(600);
-						driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
+//						driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("MB Cartridge");
 						driver.findElement(By.name("copy_catalog_id")).sendKeys(ProductID);
 						Thread.sleep(600);
