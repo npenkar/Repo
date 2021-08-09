@@ -75,14 +75,14 @@ public class PriceChange
 			System.out.println("Current String Price :: " + CurrentStringPrice);
 			String StringCurrentPrice = CharMatcher.inRange('0', '9').retainFrom(CurrentStringPrice);
 			int CurrentIntPrice = Integer.parseInt(StringCurrentPrice.replaceAll("[^0-9]", ""));
-			int UpdatedIntPrice = CurrentIntPrice - 2;
+			int UpdatedIntPrice = CurrentIntPrice - 4;
 			String UpdatedStringPrice = String.valueOf(UpdatedIntPrice);
 			System.out.println("Updated String Price :: " + UpdatedStringPrice);
 			
 			String CurrentStringPercentage = driver.findElement(By.xpath("//tbody/tr[1]/td[4]/input[1]")).getAttribute("value"); 
 			System.out.println("Current String Percentage :: " + CurrentStringPercentage);
 			float CurrentFloatPercentage = Float.parseFloat(CurrentStringPercentage);	
-			double PercentaddDouble = CurrentFloatPercentage + 0.22;
+			double PercentaddDouble = CurrentFloatPercentage + 0.17;
 			String PercentageFloat = String.format("%.2f", PercentaddDouble);
 			String StringFloatPrecent=String.valueOf(PercentageFloat);
 			System.out.println("Updated String Float Percentage :: " + StringFloatPrecent);
