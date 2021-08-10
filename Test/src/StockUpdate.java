@@ -27,8 +27,8 @@ public class StockUpdate {
 	    String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
 		String draft = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/index";
 		
-		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(0);
-		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(1);
+		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(0);
+		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(1);
 		System.out.println("	Reading Username and Password from file... ");
 		driver.manage().window().maximize();
 		driver.get(login);
@@ -52,13 +52,13 @@ public class StockUpdate {
 		Thread.sleep(500);
 		driver.findElement(By.xpath(".//a[contains(text(),'Offerings Expiring Soon')]")).click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
+//		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 
 		int count = 0;
 for(int i=0; i<500; i++)
 {	
 	
-	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li[3]/a")).click(); // PAGE5
+	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li[6]/a")).click(); // PAGE5
 
 		Thread.sleep(3000);
 	for(int j=1;j<=10;j++)
