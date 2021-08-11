@@ -23,7 +23,7 @@ public class StockUpdate {
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver92.exe");
 
 		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	    String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
 		String draft = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/index";
 		
@@ -45,7 +45,7 @@ public class StockUpdate {
 		Thread.sleep(500); 
 
 		driver.get(draft);
-		Thread.sleep(3000); 
+		Thread.sleep(6000); 
 //		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 		Thread.sleep(500); 
 		driver.findElement(By.xpath(".//span[contains(text(),'More')]")).click();
@@ -58,7 +58,7 @@ public class StockUpdate {
 for(int i=0; i<500; i++)
 {	
 	
-	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li[6]/a")).click(); // PAGE5
+	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li[4]/a")).click(); // PAGE5
 
 		Thread.sleep(3000);
 	for(int j=1;j<=10;j++)
