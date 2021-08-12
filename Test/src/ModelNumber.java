@@ -297,7 +297,7 @@ public class ModelNumber
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[2]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[2]/input[1]")).sendKeys(Title);
 						Thread.sleep(500);
 						driver.findElement(By.xpath("//button[contains(text(),'SAVE / PROCEED')]")).click();
-						Thread.sleep(5000);
+						Thread.sleep(3000);
 						
 //image 0
 						driver.findElement(By.xpath("//button[@id='spec-upload-btn']")).click();
@@ -314,7 +314,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(5000);
+						Thread.sleep(3000);
 		
 //OEM SELECT			driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("OEM");
 						Thread.sleep(100);
@@ -371,9 +371,9 @@ public class ModelNumber
 						robot.keyPress(KeyEvent.VK_ESCAPE);
 						robot.keyRelease(KeyEvent.VK_ESCAPE);
 						Thread.sleep(100);
-						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[13]/div[2]/input[1]")).sendKeys(FinalMRP);
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[14]/div[2]/input")).sendKeys(FinalMRP);
 						Thread.sleep(100);
-						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[15]/div[2]/input[1]")).sendKeys(FinalSellPrice);
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[16]/div[2]/input")).sendKeys(FinalSellPrice);
 						Thread.sleep(400);
 						driver.findElement(By.xpath(".//tbody/tr[1]/td[1]/input[1]")).click();
 						Thread.sleep(100);
@@ -399,10 +399,10 @@ public class ModelNumber
 						Thread.sleep(100);
 						driver.switchTo().alert().accept();
 						Thread.sleep(100);
-						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[17]/div[5]/div[2]/input[1]")).sendKeys("2000");
-						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[17]/div[6]/div[2]/input[1]")).sendKeys("1");
-						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[17]/div[7]/div[2]/input[1]")).sendKeys("10");
-						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[18]/div[2]/button[1]")).click();
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[5]/div[2]/input")).sendKeys("2000");
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[6]/div[2]/input")).sendKeys("1");
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[7]/div[2]/input")).sendKeys("10");
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[19]/div[2]/button")).click();
 						Thread.sleep(5000);
 						
 //	trademark
@@ -420,7 +420,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(5000);
+						Thread.sleep(4000);
 		
 						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[1]/form-builder[1]/div[1]/div[1]/div[1]/fieldset[1]/div[3]/div[1]/div[2]/div[1]/element[1]/div[1]/input[1]")).clear();
 						Thread.sleep(100);
@@ -435,7 +435,7 @@ public class ModelNumber
 						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[4]/document-upload[1]/div[1]/fieldset[1]/div[2]/select[1]")).sendKeys("OEM Authorization Document");
 						Thread.sleep(1000);
 						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/button[1]")).click();
-						Thread.sleep(5000);
+						Thread.sleep(4000);
 						
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[1]/div/div/button/i")).click();
 						Thread.sleep(600);
@@ -451,7 +451,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(5000);
+						Thread.sleep(4000);
 								
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[2]/div/div/button/i")).click();
 						Thread.sleep(600);
@@ -467,7 +467,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(5000);
+						Thread.sleep(4000);
 		
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[3]/div/div/button/i")).click();
 						Thread.sleep(600);
@@ -483,7 +483,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(5000);
+						Thread.sleep(4000);
 		
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[3]/div/div/button/i")).click();
 						Thread.sleep(600);
@@ -499,12 +499,12 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(5000);
+						Thread.sleep(4000);
 //					
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[4]/div[2]/input")).click();
 						Thread.sleep(300);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[5]/div[2]/button")).click();
-						Thread.sleep(5000);
+						Thread.sleep(4000);
 		
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div/a")).click();
 						Thread.sleep(1000);
@@ -526,14 +526,14 @@ public class ModelNumber
 						clickpublish.executeScript("arguments[0].click();", publish);
 						Thread.sleep(1000);
 						clickpublish.executeScript("arguments[0].click();", publish);
-						Thread.sleep(4500);
+						Thread.sleep(4000);
 						driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[2]")).click();
 //						DataLine.Info info1 = new DataLine.Info(Clip.class, format);
 //						Clip audioClip1 = (Clip) AudioSystem.getLine(info1);
 //						driver.findElement(By.xpath(".//div[contains(text(),'Upload Another Product')]")).click();
 //						audioClip1.open(audiois2);
 //						audioClip1.start();
-						 Thread.sleep(5000);
+						 Thread.sleep(4000);
 						driver.get(addnewproduct);
 					
 						FileOutputStream fio = new FileOutputStream(src);
