@@ -274,7 +274,7 @@ public class Reseller
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[2]/div[1]/div[2]/div[1]/fieldset[1]/div[7]/div[2]/button[1]")).click();
 						Thread.sleep(5000);
 						
-						WebElement MRPImg = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[14]/div[4]/document-upload[1]/div[1]/fieldset[1]/div[2]/button[1]"));
+						WebElement MRPImg = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[15]/div[4]/document-upload/div[1]/fieldset/div[2]/button/i[1]"));
 						MRPImg.click();
 						Thread.sleep(600);
 						Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
