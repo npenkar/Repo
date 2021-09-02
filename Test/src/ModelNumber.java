@@ -371,9 +371,9 @@ public class ModelNumber
 						robot.keyPress(KeyEvent.VK_ESCAPE);
 						robot.keyRelease(KeyEvent.VK_ESCAPE);
 						Thread.sleep(100);
-						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[13]/div[2]/input")).sendKeys(FinalMRP);
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[14]/div[2]/input")).sendKeys(FinalMRP);
 						Thread.sleep(100);
-						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[15]/div[2]/input")).sendKeys(FinalSellPrice);
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[16]/div[2]/input")).sendKeys(FinalSellPrice);
 						Thread.sleep(400);
 						driver.findElement(By.xpath(".//tbody/tr[1]/td[1]/input[1]")).click();
 						Thread.sleep(100);
@@ -399,10 +399,10 @@ public class ModelNumber
 						Thread.sleep(100);
 						driver.switchTo().alert().accept();
 						Thread.sleep(100);
-						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[17]/div[5]/div[2]/input")).sendKeys("2000");
-						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[17]/div[6]/div[2]/input")).sendKeys("1");
-						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[17]/div[7]/div[2]/input")).sendKeys("10");
-						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/button")).click();
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[5]/div[2]/input")).sendKeys("2000");
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[6]/div[2]/input")).sendKeys("1");
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[7]/div[2]/input")).sendKeys("10");
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[19]/div[2]/button")).click();
 						Thread.sleep(5000);
 						
 //	trademark
