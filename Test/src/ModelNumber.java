@@ -41,7 +41,7 @@ public class ModelNumber
 	public static void main(String[] args) throws InterruptedException, AWTException, Exception 
 	{
 		long start = System.currentTimeMillis();
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver92.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver92.exe");
