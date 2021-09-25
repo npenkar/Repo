@@ -294,7 +294,8 @@ public class OEMModel
 						Thread.sleep(3000);
 						
 //image 0
-						driver.findElement(By.xpath("//button[@id='spec-upload-btn']")).click();
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[15]/div[4]/document-upload/div[1]/fieldset/div[2]/button")).click();
+						Thread.sleep(1000);
 						Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 						StringSelection img0 = new StringSelection("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img0.png");					
 						clipboard.setContents(img0, null);
@@ -315,7 +316,7 @@ public class OEMModel
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("OEM");
 						Thread.sleep(100);
 
-						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[1]/div[2]/div[1]/div[1]/input[1]")).sendKeys("JAPAN");
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[1]/div[2]/div/div[1]/input")).sendKeys("JAPAN");
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
