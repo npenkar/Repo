@@ -44,7 +44,7 @@ public class ModelNumber
 		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver92.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver92.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
@@ -296,7 +296,7 @@ public class ModelNumber
 						Thread.sleep(500);
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[2]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[2]/input[1]")).sendKeys(Title);
 						Thread.sleep(500);
-						driver.findElement(By.xpath("//button[contains(text(),'SAVE / PROCEED')]")).click();
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[2]/div/div[2]/div/fieldset/div[7]/div[2]/button")).click();
 						Thread.sleep(3000);
 						
 //image 0

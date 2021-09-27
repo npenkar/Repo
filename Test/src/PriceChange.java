@@ -21,7 +21,7 @@ public class PriceChange
 		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver92.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
 //		no change
 		WebDriver driver = new ChromeDriver();
 		

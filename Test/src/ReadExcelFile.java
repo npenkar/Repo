@@ -19,7 +19,7 @@ public class ReadExcelFile
 	
 
 		public static void main(String[]args)  throws Exception{
-			System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver92.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
 
 			WebDriver driver = new ChromeDriver();
 //			WebDriverWait wait = new WebDriverWait(driver, 30);

@@ -22,7 +22,7 @@ public class ExpiredStock {
 		long start = System.currentTimeMillis(); 
 		Runtime.getRuntime().exec("taskkill /F /IM chromedriver92.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver92.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
 
 //		ChromeOptions o= new ChromeOptions();
 //	    o.addArguments("--incognito", "--disable-geolocation");
