@@ -205,9 +205,9 @@ public class OEMModel
 						int TempRate = (int) (SellPriceInt * flt / 100);
 						int TempSellPriceLowRate = (SellPriceInt - TempRate) / 100;
 						int SellPriceLowRate = 0;
-						if(TempSellPriceLowRate > 16000)
+						if(TempSellPriceLowRate > 25000)
 						{
-							TempSellPriceLowRate = 16000;
+							TempSellPriceLowRate = 25000;
 						}
 						else
 						{
