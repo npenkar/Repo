@@ -463,7 +463,7 @@ public class FixedPriceYash
 						audioClip1.open(audiois1);
 						audioClip1.start();
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/show-captcha/div/div[2]/input")).click();
-						Thread.sleep(10000);
+						Thread.sleep(12000);
 						audioClip1.close();
 						audiois1.close();
 	
@@ -474,23 +474,15 @@ public class FixedPriceYash
 						clickpublish.executeScript("arguments[0].click();", publish);
 						Thread.sleep(4000);
 						driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[2]")).click();
-
-						 Thread.sleep(4000);
-						driver.get(addnewproduct);
+						Thread.sleep(4000);
+					
 					
 						FileOutputStream fio = new FileOutputStream(src);
-						if (driver.getCurrentUrl() == addnewproduct) 
 						{
 							ws.removeRow(ws.getRow(0));
 							int lastrow = ws.getLastRowNum();
 							ws.shiftRows(i+1, lastrow, -1);
 						} 
-						else 
-						{
-							ws.removeRow(ws.getRow(0));
-							int lastrow = ws.getLastRowNum();
-							ws.shiftRows(i+1, lastrow, -1);
-						}
 							wb.write(fio);
 							fio.flush();
 							fio.close();
