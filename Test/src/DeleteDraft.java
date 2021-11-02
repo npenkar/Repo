@@ -56,53 +56,25 @@ public class DeleteDraft {
 		Thread.sleep(500);
 		driver.findElement(By.xpath("//a[contains(text(),'Draft products')]")).click();
 		Thread.sleep(3000);
-		
-		Robot robot = new Robot();
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		Thread.sleep(500);
-//		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
-
+	     
 		int count = 0;
-for(int i=0; i<10000; i++)
-{	
-	
-	driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/index-component[1]/div[2]/div[1]/ul[1]/li["+pnum1+"]/a[1]")).click(); // PAGE5
-
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	Thread.sleep(3000);
-	if(driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr[1]/td[12]/span[3]/a")).isDisplayed())
-	{
-		Thread.sleep(500);
-		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr[1]/td[12]/span[3]/a")).click();
-	}
-	else
-	{
-		Thread.sleep(500);
-		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr[1]/td[12]/span[3]/a")).click();
-	}
-	
-//	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr[1]/td[12]/span[3]/a")).click();
-	Thread.sleep(500);
-	driver.findElement(By.xpath("//button[contains(text(),'Yes')]")).click();
-	Thread.sleep(2000);
+		for(int i=0; i<10000; i++)
+		{	
+			WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr[8]/td[12]/span[3]/a"));			
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
+//			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li[3]/a")).click(); // PAGE5
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//			Thread.sleep(3000);
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr[10]/td[12]/span[3]/a")).click();
+			Thread.sleep(500);
+			driver.findElement(By.xpath("//button[contains(text(),'Yes')]")).click();
+			Thread.sleep(5000);
 
 		count++;
 		long ExecutionTime = (System.currentTimeMillis() - start);
 		long ETS = ExecutionTime/1000 ;
 		System.out.println(" ====>  "+count+" : Stock DELETED in " + ETS +" seconds");
+		continue;
 		
 	  }
 	}
