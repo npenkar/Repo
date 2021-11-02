@@ -1,10 +1,15 @@
 
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import javax.imageio.ImageIO;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,6 +17,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+
+import net.sourceforge.tess4j.Tesseract;
 
 
 public class StockUpdate {
@@ -29,7 +36,13 @@ public class StockUpdate {
 		
 		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(0);
 		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(1);
-		System.out.println("	Reading Username and Password from file... ");
+		String pnum = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\pagenumber.txt")).get(0);
+		System.out.println("...	Reading Username and Password from file ...	");
+		System.out.println("Username  : " +uname);
+		System.out.println("Password : " +pwd);
+		System.out.println("Page Number for stock update : " +pnum);
+
+		
 		driver.manage().window().maximize();
 		driver.get(login);
 		driver.findElement(By.id("loginid")).sendKeys(uname); 
@@ -58,7 +71,7 @@ public class StockUpdate {
 for(int i=0; i<500; i++)
 {	
 	
-	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li[4]/a")).click(); // PAGE5
+	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li["+pnum+"]/a")).click(); // PAGEnumber
 
 		Thread.sleep(3000);
 	for(int j=1;j<=10;j++)
@@ -94,16 +107,69 @@ for(int i=0; i<500; i++)
 		robot.keyPress(KeyEvent.VK_ESCAPE);
 		robot.keyRelease(KeyEvent.VK_ESCAPE);
 		Thread.sleep(100);
+	
+		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
+		WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/button"));
+		action.moveToElement(Submit).click().build().perform();
+//		Thread.sleep(1000);
+//		captcha check start here
+					
+		do {
+		if(( driver.getPageSource().contains("Invalid captcha") ||( driver.getPageSource().contains("Please enter captcha")) || ( driver.getPageSource().contains("Catalogue already uploaded by you"))))
+						
+			Thread.sleep(1000);
+		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[1]/i")).click();
+		WebElement captchaElement = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[1]/img"));
+		String captcha = captchaElement.getAttribute("src");
+		Thread.sleep(600);
+
+		URL CAPTCHAURL = new URL(captcha);
+		BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
+		ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
+				
+		Tesseract tesseract = new Tesseract();
+		tesseract.setDatapath("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\OCRlib\\Tess4J");
+					// the path of your tess data folder
+					// inside the extracted file
+		String captchaTotext = tesseract.doOCR(new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
+					// path of your image file
+		String CapitalCaptcha = captchaTotext.toUpperCase();
+		System.out.print(CapitalCaptcha);
+			
+		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).clear();
+		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);
+		Thread.sleep(1000);
+//		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/show-captcha/div/div[3]/label")).click();
+//		Thread.sleep(1000);
+				
+				//				============= Tess4J CAPTCHA Tweak end =============
+				
+		action.moveToElement(Submit).click().build().perform();
+//		Thread.sleep(500);
+//		robot.keyPress(KeyEvent.VK_ESCAPE);
+//		robot.keyPress(KeyEvent.VK_ESCAPE);
+//		Thread.sleep(500);
+//		robot.keyPress(KeyEvent.VK_ESCAPE);
+//		robot.keyPress(KeyEvent.VK_ESCAPE);
+//		Thread.sleep(500);
+//		action.moveToElement(Submit).click().build().perform();
+//		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/input")).click();;
+		Thread.sleep(1500);
+				
+		if (driver.getPageSource().contains("Stock Updated Successfully"))
+		{
+			break;
+		}
+		else {
+			continue;
+		}
+//		Thread.sleep(4000);	
+		}while( ( driver.getPageSource().contains("Invalid captcha") ||( driver.getPageSource().contains("Please enter captcha"))));
+//		
 		
-//		String box2 = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[18]/div[2]/label[1]")).getText();
-//		System.out.println(box2);
-		WebElement box21 = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[18]/div[2]/label[1]"));
-		box21.click();
-		Thread.sleep(500);
-		
-		WebElement UPDATE = driver.findElement(By.xpath("//button[contains(text(),'Update Stock')]"));
-		JavascriptExecutor CLICK = (JavascriptExecutor) driver;
-		CLICK.executeScript("arguments[0].click();", UPDATE);
+//		WebElement UPDATE = driver.findElement(By.xpath("//button[contains(text(),'Update Stock')]"));
+//		JavascriptExecutor CLICK = (JavascriptExecutor) driver;
+//		CLICK.executeScript("arguments[0].click();", UPDATE);
 		Thread.sleep(3500); 
 		driver.close();
 		driver.switchTo().window(tabs2.get(0));
