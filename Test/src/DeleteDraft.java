@@ -29,7 +29,11 @@ public class DeleteDraft {
 		
 		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(0);
 		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(1);
+		String pnum1 = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\pagenumber.txt")).get(1);
 		System.out.println("	Reading Username and Password from file... ");
+		System.out.println(" username : "+ uname);
+		System.out.println(" password : "+ pwd);
+		System.out.println(" page number  : "+ pnum1);
 		driver.manage().window().maximize();
 		driver.get(login);
 		driver.findElement(By.id("loginid")).sendKeys(uname); 
@@ -75,7 +79,7 @@ public class DeleteDraft {
 for(int i=0; i<10000; i++)
 {	
 	
-//	driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/index-component[1]/div[2]/div[1]/ul[1]/li[3]/a[1]")).click(); // PAGE5
+	driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/index-component[1]/div[2]/div[1]/ul[1]/li["+pnum1+"]/a[1]")).click(); // PAGE5
 
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	Thread.sleep(3000);
