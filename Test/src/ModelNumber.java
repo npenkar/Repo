@@ -522,7 +522,7 @@ public class ModelNumber
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[2]/input")).click();
 						Thread.sleep(500);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/show-captcha/div/div[2]/input")).click();
-						Thread.sleep(1000);
+						Thread.sleep(10000);
 						WebElement publish = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/input"));
 						JavascriptExecutor clickpublish = (JavascriptExecutor) driver;
 						clickpublish.executeScript("arguments[0].click();", publish);
