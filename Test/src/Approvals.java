@@ -63,6 +63,7 @@ public class Approvals
 //		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 		for(int j=1; j<=10; j++)
 		{
+		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/oem-index-component[1]/div[1]/div[3]/catalogs-component[1]/div[1]/ul[1]/li[5]/a[1]")).click();
 		long start = System.currentTimeMillis();
 		Thread.sleep(700);
 		Actions action = new Actions(driver);
