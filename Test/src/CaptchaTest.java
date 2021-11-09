@@ -34,8 +34,8 @@ public class CaptchaTest
 	public static void main(String[] args) throws InterruptedException, AWTException, Exception 
 	{
 		long start = System.currentTimeMillis();
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver92.exe");
-		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM chromedriver94.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
 		WebDriver driver = new ChromeDriver();
@@ -73,14 +73,14 @@ public class CaptchaTest
 		XSSFSheet ws = wb.getSheetAt(0);
 		int rowcount = ws.getLastRowNum();
 		int count = 0;
-		System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
-		System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
+		System.out.println("		à¤•à¤¿à¤¤à¤¨à¥‡ Product ID à¤¹à¥‡ à¤°à¥‡ à¤¸à¤¾à¤‚à¤­à¤¾ ????" + rowcount);
+		System.out.println("		à¤¸à¤°à¤•à¤¾à¤° "+rowcount+" ID à¤¹à¥‡ Excel à¤®à¥‡à¤‚" );
 //		for loop start
 		for (int i = 0; i < rowcount; ) 
 		{
 			XSSFCell cell = ws.getRow(i).getCell(0);
 			String ProductID = cell.getStringCellValue();
-			System.out.println("		Excel à¤•à¤¾ ID : " + ProductID);
+			System.out.println("		Excel Ã Â¤â€¢Ã Â¤Â¾ ID : " + ProductID);
 			fis.close();
 			Robot robot = new Robot();
 			driver.get(search + ProductID);
@@ -102,15 +102,15 @@ public class CaptchaTest
 			{
 			if(driver.findElements(By.xpath("//div[contains(text(),'SEARCH :')]")).size() != 0)
 			{
-				System.out.println("		😠😠😠 गलत ID निकला बे गांडू 😠😠😠");
+				System.out.println("		ðŸ˜ ðŸ˜ ðŸ˜  à¤—à¤²à¤¤ ID à¤¨à¤¿à¤•à¤²à¤¾ à¤¬à¥‡ à¤—à¤¾à¤‚à¤¡à¥‚ ðŸ˜ ðŸ˜ ðŸ˜ ");
 				ws.removeRow(ws.getRow(0));
 				int lastrow = ws.getLastRowNum();
 				ws.shiftRows(i+1, lastrow, -1);
-				System.out.println("		गलत था इसीलिए डिलीट कर दिया : "+ProductID);
+				System.out.println("		à¤—à¤²à¤¤ à¤¥à¤¾ à¤‡à¤¸à¥€à¤²à¤¿à¤� à¤¡à¤¿à¤²à¥€à¤Ÿ à¤•à¤° à¤¦à¤¿à¤¯à¤¾ : "+ProductID);
 			}
 			else
 				{
-				System.out.println("ID सही है बे ✅✅✅");
+				System.out.println("ID à¤¸à¤¹à¥€ à¤¹à¥ˆ à¤¬à¥‡ âœ…âœ…âœ…");
 				WebElement NA = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[2]/div/div[2]/div[3]/div[1]/div[1]/span/span"));
 				String sNA = NA.getText();
 				System.out.println(">"+sNA+"<");
@@ -121,7 +121,7 @@ public class CaptchaTest
 				ws.removeRow(ws.getRow(0));
 				int lastrow = ws.getLastRowNum();
 				ws.shiftRows(i+1, lastrow, -1);
-				System.out.println("MRP नहीं मिला तो डिलीट कर दिया ...");
+				System.out.println("MRP à¤¨à¤¹à¥€à¤‚ à¤®à¤¿à¤²à¤¾ à¤¤à¥‹ à¤¡à¤¿à¤²à¥€à¤Ÿ à¤•à¤° à¤¦à¤¿à¤¯à¤¾ ...");
 				} 
 				else 
 					{
@@ -528,11 +528,11 @@ public class CaptchaTest
 				wb.write(fio);
 				fio.flush();
 				fio.close();
-				System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
+				System.out.println("		à¤‡à¤¸à¤•à¤¾  " +ProductID+ "  à¤²à¤¿à¤¸à¥�à¤Ÿà¤¿à¤‚à¤— à¤¹à¥‹ à¤—à¤¯à¤¾ ðŸ”¥ðŸ”¥ðŸ”¥ ");
 
 			count++;
-			System.out.println("		कितना लिस्टिंग हुआ बे ????");
-	    	System.out.println("		Total " + count +" LISTING हुआ सरकार...");
+			System.out.println("		à¤•à¤¿à¤¤à¤¨à¤¾ à¤²à¤¿à¤¸à¥�à¤Ÿà¤¿à¤‚à¤— à¤¹à¥�à¤† à¤¬à¥‡ ????");
+	    	System.out.println("		Total " + count +" LISTING à¤¹à¥�à¤† à¤¸à¤°à¤•à¤¾à¤°...");
 						}
 
 					
