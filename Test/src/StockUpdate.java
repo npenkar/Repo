@@ -1,5 +1,6 @@
 
 import java.awt.Robot;
+import java.util.Scanner;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,7 +25,42 @@ import net.sourceforge.tess4j.Tesseract;
 public class StockUpdate {
 
 	public static void main(String[] args) throws Exception{
-		long start = System.currentTimeMillis(); 
+		
+		String uname;
+		String pwd;
+		String pnum;
+		String str;
+		@SuppressWarnings("resource")
+		Scanner in = new Scanner(System.in);
+		System.out.println("   :: Stock update for Pooja/ Yash ::");
+		System.out.println("==> Enter P = Pooja || Enter Y for Yash : ");
+	    str = in.next();
+	    Thread.sleep(500);
+	    if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
+	    {
+	    	Thread.sleep(500);
+	    	System.out.println("==> Pooja ID Stock update selected ::: ");
+	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(0);
+			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(1);
+			pnum = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\pagenumber.txt")).get(0);
+			System.out.println("...	Reading Username and Password from file ...	");
+			System.out.println("Username  : " +uname);
+			System.out.println("Password : " +pwd);
+			System.out.println("Page Number for stock update : " +pnum);
+	    }else
+	    {
+	    	Thread.sleep(500);
+	    	System.out.println("==> Yash ID Stock update selected ::: ");
+	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(0);
+			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(1);
+			pnum = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\pagenumber.txt")).get(0);
+			System.out.println("...	Reading Username and Password from file ...	");
+			System.out.println("Username  : " +uname);
+			System.out.println("Password : " +pwd);
+			System.out.println("Page Number for stock update : " +pnum);
+	    }
+
+	    long start = System.currentTimeMillis(); 
 		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver94.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
@@ -34,15 +70,7 @@ public class StockUpdate {
 	    String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
 		String draft = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/index";
 		
-		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(0);
-		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(1);
-		String pnum = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\pagenumber.txt")).get(0);
-		System.out.println("...	Reading Username and Password from file ...	");
-		System.out.println("Username  : " +uname);
-		System.out.println("Password : " +pwd);
-		System.out.println("Page Number for stock update : " +pnum);
-
-		
+	    Thread.sleep(500);
 		driver.manage().window().maximize();
 		driver.get(login);
 		driver.findElement(By.id("loginid")).sendKeys(uname); 
