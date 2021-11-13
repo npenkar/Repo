@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -23,7 +24,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
 import com.google.common.base.CharMatcher;
+
+import net.sourceforge.tess4j.Tesseract;
 
 //import org.openqa.selenium.io.FileHandler;
 //import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -38,22 +43,74 @@ import com.google.common.base.CharMatcher;
 
 public class ModelNumber 
 {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws InterruptedException, AWTException, Exception 
 	{
+
+		String uname;
+		String pwd;
+		String str;
+		int rowcount;
+		FileInputStream fis;
+		XSSFWorkbook wb;
+		XSSFSheet ws;
+		int count = 0;
+		@SuppressWarnings("resource")
+		Scanner in = new Scanner(System.in);
+		System.out.println("   ::Model Number for Pooja/ Yash ::");
+		System.out.println("==> Enter P = Pooja || Enter Y for Yash : ");
+	    str = in.next();
+	    Thread.sleep(500);
+	    if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
+	    {
+	    	Thread.sleep(500);
+	    	System.out.println("==> Pooja ID Stock update selected ::: ");
+	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\PoojaID.txt")).get(0);
+			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\PoojaID.txt")).get(1);
+			System.out.println("...	Reading Username and Password from file ...	");
+			System.out.println("Username  : " +uname);
+			System.out.println("Password : " +pwd);
+			
+			File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\PoojaModelNumber.xlsx"); 
+			fis = new FileInputStream(src);
+			wb = new XSSFWorkbook(fis);
+			ws = wb.getSheetAt(0);
+			rowcount = ws.getLastRowNum();
+			System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
+			System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
+			
+	    }else
+	    {
+	    	Thread.sleep(500);
+	    	System.out.println("==> Yash ID Stock update selected ::: ");
+	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\YashID.txt")).get(0);
+			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\YashID.txt")).get(1);
+			System.out.println("...	Reading Username and Password from file ...	");
+			System.out.println("Username  : " +uname);
+			System.out.println("Password : " +pwd);
+			
+			File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\YashModelNumber.xlsx"); 
+			fis = new FileInputStream(src);
+			wb = new XSSFWorkbook(fis);
+			ws = wb.getSheetAt(0);
+			rowcount = ws.getLastRowNum();
+			System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
+			System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
+			
+//			fio = new FileOutputStream(src);
+	    }
+
+		
 		long start = System.currentTimeMillis();
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver92.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver95.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver95.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
 		String addnewproduct = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/new?bnid=home_offi_offi_prin_comp";
 		String search = "https://mkp.gem.gov.in/home/search?q=";
-
-		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(0);
-		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\reseller-creden.txt")).get(1);
-		System.out.println("	Reading Username and Password from file... ");
 		
 		driver.manage().window().maximize();
 		driver.get(login);
@@ -71,17 +128,7 @@ public class ModelNumber
 		Thread.sleep(600);
 		driver.findElement(By.cssSelector("#loginFrm>div.row>div:nth-child(1)>button")).click();
 		Thread.sleep(300);
-		
-//		Read ProductID from Excel
-		File src = new File("C:\\Np\\Dev\\Eclipse\\Reseller.xlsx"); 
-		FileInputStream fis = new FileInputStream(src);
-		@SuppressWarnings("resource")
-		XSSFWorkbook wb = new XSSFWorkbook(fis);
-		XSSFSheet ws = wb.getSheetAt(0);
-		int rowcount = ws.getLastRowNum();
-		int count = 0;
-		System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
-		System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
+			
 //		for loop start
 		for (int i = 0; i < rowcount; ) 
 		{
@@ -316,10 +363,13 @@ public class ModelNumber
 						robot.keyRelease(KeyEvent.VK_ENTER);
 						Thread.sleep(3000);
 		
-//OEM SELECT			driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("OEM");
+					    if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
+					    {
+					    driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("OEM");
 						Thread.sleep(100);
-					
-
+					    }
+					    else
+					    {
 //Resellers Details
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("Resellers");
 						Thread.sleep(100);
@@ -361,6 +411,7 @@ public class ModelNumber
 //						select date 31
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/fieldset[1]/div[5]/div[2]/div[1]/div[4]/p[1]/div[1]/ul[1]/li[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[5]/td[4]/button[1]/span[1]")).click();
 						Thread.sleep(100);
+					    }
 //rESELLER END
 						
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[1]/div[2]/div[1]/div[1]/input[1]")).sendKeys("JAPAN");
@@ -484,23 +535,7 @@ public class ModelNumber
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
 						Thread.sleep(4000);
-		
-						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[3]/div/div/button/i")).click();
-						Thread.sleep(600);
-						StringSelection img00 = new StringSelection("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img0.png");
-						clipboard.setContents(img00, null);
-						driver.switchTo().activeElement();
-						Thread.sleep(600);
-						robot.keyPress(KeyEvent.VK_CONTROL);
-						robot.keyPress(KeyEvent.VK_V);
-						Thread.sleep(100);
-						robot.keyRelease(KeyEvent.VK_CONTROL);
-						robot.keyRelease(KeyEvent.VK_V);
-						Thread.sleep(100);
-						robot.keyPress(KeyEvent.VK_ENTER);
-						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(4000);
-//					
+
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[4]/div[2]/input")).click();
 						Thread.sleep(300);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[5]/div[2]/button")).click();
@@ -522,45 +557,91 @@ public class ModelNumber
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[2]/input")).click();
 						Thread.sleep(500);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/show-captcha/div/div[2]/input")).click();
-						Thread.sleep(10000);
-						WebElement publish = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/input"));
-						JavascriptExecutor clickpublish = (JavascriptExecutor) driver;
-						clickpublish.executeScript("arguments[0].click();", publish);
 						Thread.sleep(1000);
-						clickpublish.executeScript("arguments[0].click();", publish);
-						Thread.sleep(4000);
-						driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[2]")).click();
-//						DataLine.Info info1 = new DataLine.Info(Clip.class, format);
-//						Clip audioClip1 = (Clip) AudioSystem.getLine(info1);
-//						driver.findElement(By.xpath(".//div[contains(text(),'Upload Another Product')]")).click();
-//						audioClip1.open(audiois2);
-//						audioClip1.start();
-						 Thread.sleep(4000);
-						driver.get(addnewproduct);
-					
-						FileOutputStream fio = new FileOutputStream(src);
-						if (driver.getCurrentUrl() == addnewproduct) 
+						
+//CAPTCHACODE STARTED
+						Actions action = new Actions(driver);
+						WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/input"));
+						action.moveToElement(Submit).click().build().perform();
+
+						do {
+						if(( driver.getPageSource().contains("Invalid captcha") ||( driver.getPageSource().contains("Please enter captcha")) || ( driver.getPageSource().contains("Catalogue already uploaded by you"))))
+										
+							Thread.sleep(1000);
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/show-captcha/div/div[1]/i")).click();
+						WebElement captchaElement = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/div[4]/div[3]/show-captcha[1]/div[1]/div[1]/img[1]"));
+						String captcha = captchaElement.getAttribute("src");
+						Thread.sleep(600);
+
+						URL CAPTCHAURL = new URL(captcha);
+						BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
+						ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
+								
+						Tesseract tesseract = new Tesseract();
+						tesseract.setDatapath("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\OCRlib\\Tess4J");
+									// the path of your tess data folder
+									// inside the extracted file
+						String captchaTotext = tesseract.doOCR(new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
+									// path of your image file
+						String CapitalCaptcha = captchaTotext.toUpperCase();
+						System.out.print(CapitalCaptcha);
+							
+						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/div[4]/div[3]/show-captcha[1]/div[1]/div[2]/input[1]")).clear();
+						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/div[4]/div[3]/show-captcha[1]/div[1]/div[2]/input[1]")).sendKeys(CapitalCaptcha);
+						Thread.sleep(1000);
+								//				============= Tess4J CAPTCHA Tweak end =============
+								
+						action.moveToElement(Submit).click().build().perform();
+						Thread.sleep(500);
+						robot.keyPress(KeyEvent.VK_ESCAPE);
+						robot.keyPress(KeyEvent.VK_ESCAPE);
+						Thread.sleep(500);
+						robot.keyPress(KeyEvent.VK_ESCAPE);
+						robot.keyPress(KeyEvent.VK_ESCAPE);
+						Thread.sleep(500);
+						action.moveToElement(Submit).click().build().perform();
+						Thread.sleep(1000);
+								
+						if (driver.getPageSource().contains("Upload another product") || (driver.getPageSource().contains("Catalogue already uploaded by you:")))
 						{
-							ws.removeRow(ws.getRow(0));
-							int lastrow = ws.getLastRowNum();
-							ws.shiftRows(i+1, lastrow, -1);
-						} 
-						else 
-						{
-							ws.removeRow(ws.getRow(0));
-							int lastrow = ws.getLastRowNum();
-							ws.shiftRows(i+1, lastrow, -1);
+							driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[2]")).click();
+							break;
 						}
-							wb.write(fio);
-							fio.flush();
-							fio.close();
-							System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
-		//				audioClip1.close();
-		//				audiois2.close();
+						else {
+							continue;
+						}	
+						}while( ( driver.getPageSource().contains("Invalid captcha") ||( driver.getPageSource().contains("Please enter captcha"))));
+//CAPTCHACODE COMPLETED
+						 Thread.sleep(4000);
+						
+					
+					 if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
+					 {
+						File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\PoojaModelNumber.xlsx"); 
+						FileOutputStream fio = new FileOutputStream(src);
+						ws.removeRow(ws.getRow(0));
+						int lastrow = ws.getLastRowNum();
+						ws.shiftRows(i+1, lastrow, -1);
+						wb.write(fio);
+						fio.flush();
+						fio.close();
+						System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
+					}else 
+					{
+						File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\YashModelNumber.xlsx"); 
+						FileOutputStream fio = new FileOutputStream(src);
+						ws.removeRow(ws.getRow(0));
+						int lastrow = ws.getLastRowNum();
+						ws.shiftRows(i+1, lastrow, -1);
+						wb.write(fio);
+						fio.flush();
+						fio.close();
+						System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
+					}
 						count++;
 						System.out.println("		कितना लिस्टिंग हुआ बे ????");
 				    	System.out.println("		Total " + count +" LISTING हुआ सरकार...");
-						}
+					}
 					Thread.sleep(2000);
 					System.out.println("Case Pass!!!");
 					long ExecutionTime = (System.currentTimeMillis() - start);
@@ -568,7 +649,9 @@ public class ModelNumber
 					System.out.println("Execution time: " + ETS + " seconds");
 				}	
 			}
-		}}}
+		}
+		}
+		}
 		 driver.close();
 	}
 }
