@@ -61,7 +61,7 @@ public class StockUpdate {
 	    }
 
 	    long start = System.currentTimeMillis(); 
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver94.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver95.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
 
@@ -93,6 +93,11 @@ public class StockUpdate {
 		Thread.sleep(500);
 		driver.findElement(By.xpath(".//a[contains(text(),'Offerings Expiring Soon')]")).click();
 		Thread.sleep(3000);
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_SPACE);
+		Thread.sleep(500);
+		robot.keyRelease(KeyEvent.VK_SPACE);
+		Thread.sleep(500);
 //		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 
 		int count = 0;
@@ -108,7 +113,7 @@ for(int i=0; i<500; i++)
 		WebElement link = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr["+j+"]/td[13]/span[1]/a"));
 		action.moveToElement(link).contextClick().build().perform();
 		
-		Robot robot = new Robot();
+		
 		Thread.sleep(500);
 		robot.keyPress(KeyEvent.VK_DOWN);
 		robot.keyRelease(KeyEvent.VK_DOWN);
@@ -136,9 +141,34 @@ for(int i=0; i<500; i++)
 		robot.keyRelease(KeyEvent.VK_ESCAPE);
 		Thread.sleep(100);
 	
-		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
-		WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/button"));
-		action.moveToElement(Submit).click().build().perform();
+		
+//		WebElement TEXTBOX20 = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input"));
+//		
+//		WebElement TEXTBOX21 = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input"));
+		
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+//		box20
+		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).size() != 0)
+		{
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
+		}else
+		{
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
+		}
+		
+//		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
+		
+//		uPDATE20/21
+		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span")).size() != 0)
+		{
+			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span"));
+			action.moveToElement(Submit).click().build().perform();
+		}else
+		{
+			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/button/span"));
+			action.moveToElement(Submit).click().build().perform();
+		}
+		
 //		Thread.sleep(1000);
 //		captcha check start here
 					
@@ -146,15 +176,35 @@ for(int i=0; i<500; i++)
 		if(( driver.getPageSource().contains("Invalid captcha") ||( driver.getPageSource().contains("Please enter captcha")) || ( driver.getPageSource().contains("Catalogue already uploaded by you"))))
 						
 			Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[1]/i")).click();
-		WebElement captchaElement = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[1]/img"));
-		String captcha = captchaElement.getAttribute("src");
-		Thread.sleep(600);
-
-		URL CAPTCHAURL = new URL(captcha);
-		BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
-		ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
-				
+		
+//		REFRESH20/21
+		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[1]/i")).size() != 0)
+		{
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[1]/i")).click();
+		}else
+		{
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[1]/i")).click();
+		}
+		
+//		CAPTCHA20/21
+		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[1]/img")).size() != 0)
+		{
+			WebElement captchaElement = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[1]/img"));
+			String captcha = captchaElement.getAttribute("src");
+			Thread.sleep(600);
+			URL CAPTCHAURL = new URL(captcha);
+			BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
+			ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
+		}else
+		{
+			WebElement captchaElement = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[1]/img"));
+			String captcha = captchaElement.getAttribute("src");
+			Thread.sleep(600);
+			URL CAPTCHAURL = new URL(captcha);
+			BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
+			ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
+		}
+			
 		Tesseract tesseract = new Tesseract();
 		tesseract.setDatapath("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\OCRlib\\Tess4J");
 					// the path of your tess data folder
@@ -164,15 +214,35 @@ for(int i=0; i<500; i++)
 		String CapitalCaptcha = captchaTotext.toUpperCase();
 		System.out.print(CapitalCaptcha);
 			
-		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).clear();
-		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);
+		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).size() != 0)
+		{
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).clear();
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);
+		}else
+		{
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).clear();
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);	
+		}
+//		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input"))
+//		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);
 		Thread.sleep(1000);
 //		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/show-captcha/div/div[3]/label")).click();
 //		Thread.sleep(1000);
 				
 				//				============= Tess4J CAPTCHA Tweak end =============
-				
-		action.moveToElement(Submit).click().build().perform();
+		
+//		uPDATE20/21
+		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span")).size() != 0)
+		{
+			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span"));
+			action.moveToElement(Submit).click().build().perform();
+		}else
+		{
+			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/button/span"));
+			action.moveToElement(Submit).click().build().perform();
+		}
+		
+		
 //		Thread.sleep(500);
 //		robot.keyPress(KeyEvent.VK_ESCAPE);
 //		robot.keyPress(KeyEvent.VK_ESCAPE);
