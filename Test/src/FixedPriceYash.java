@@ -16,11 +16,6 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.DataLine;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -101,7 +96,7 @@ public class FixedPriceYash
 		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver95.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver95.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver96.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";

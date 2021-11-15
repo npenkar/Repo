@@ -9,18 +9,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
 import javax.imageio.ImageIO;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-
 import net.sourceforge.tess4j.Tesseract;
-
 
 public class StockUpdate {
 
@@ -63,7 +58,7 @@ public class StockUpdate {
 	    long start = System.currentTimeMillis(); 
 		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver95.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver96.exe");
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
