@@ -30,17 +30,6 @@ import com.google.common.base.CharMatcher;
 
 import net.sourceforge.tess4j.Tesseract;
 
-//import org.openqa.selenium.io.FileHandler;
-//import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.openqa.selenium.support.ui.WebDriverWait;
-//import com.asprise.ocr.Ocr;
-//import javax.sound.sampled.AudioFormat;
-//import javax.sound.sampled.AudioInputStream;
-//import javax.sound.sampled.AudioSystem;
-//import javax.sound.sampled.Clip;
-//import javax.sound.sampled.DataLine;
-//import org.openqa.selenium.OutputType;
-
 public class ModelNumber 
 {
 	@SuppressWarnings("resource")
