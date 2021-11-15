@@ -91,7 +91,7 @@ public class ModelNumber
 
 		
 		long start = System.currentTimeMillis();
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver95.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver96.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver96.exe");
