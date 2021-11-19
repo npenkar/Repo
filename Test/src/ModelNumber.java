@@ -247,9 +247,9 @@ public class ModelNumber
 						int TempRate = (int) (SellPriceInt * flt / 100);
 						int TempSellPriceLowRate = (SellPriceInt - TempRate) / 100;
 						int SellPriceLowRate = 0;
-						if(TempSellPriceLowRate > 16000)
+						if(TempSellPriceLowRate > 20000)
 						{
-							TempSellPriceLowRate = 16000;
+							TempSellPriceLowRate = 20000;
 						}
 						else
 						{
