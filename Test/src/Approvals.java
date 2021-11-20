@@ -50,7 +50,16 @@ public class Approvals
 		{
 		Robot robot = new Robot();
 		driver.get(pendinglist);
-		Thread.sleep(600);
+		
+		Thread.sleep(1000);
+     		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[1]/div/select")).sendKeys("Pending");
+		Thread.sleep(500);
+		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[3]/div[1]/select")).sendKeys("All")
+		Thread.sleep(500);
+		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[4]/div/button")).click();
+		Thread.sleep(500);
+		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/oem-index-component[1]/div[1]/div[3]/catalogs-component[1]/div[1]/ul[1]/li[5]/a[1]")).click();
+		Thread.sleep(500);
 		
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request") || driver.getPageSource().contains("GeM - Government e Marketplace : Service Unavailable"))
