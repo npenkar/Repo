@@ -54,7 +54,7 @@ public class Approvals
 		Thread.sleep(1000);
      		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[1]/div/select")).sendKeys("Pending");
 		Thread.sleep(500);
-		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[3]/div[1]/select")).sendKeys("All")
+		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[3]/div[1]/select")).sendKeys("All");
 		Thread.sleep(500);
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[4]/div/button")).click();
 		Thread.sleep(500);
