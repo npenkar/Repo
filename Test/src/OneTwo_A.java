@@ -402,16 +402,16 @@ public class OneTwo_A
 			action.moveToElement(Submit).click().build().perform();
 			Thread.sleep(1000);
 					
-//			if (driver.getPageSource().contains("Upload another product") || (driver.getPageSource().contains("Catalogue already uploaded by you:")))
-//			{
-//				driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[2]")).click();
-//				Thread.sleep(500);
-//				driver.get(addnewproduct);
-//				break;
-//			}
-//			else {
-//				continue;
-//			}	
+			if (driver.getPageSource().contains("Upload another product") || (driver.getPageSource().contains("Catalogue already uploaded by you:")))
+			{
+				driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[2]")).click();
+				Thread.sleep(500);
+				driver.get(addnewproduct);
+				break;
+			}
+			else {
+				continue;
+			}	
 			}while( ( driver.getPageSource().contains("Invalid captcha") ||( driver.getPageSource().contains("Please enter captcha"))));
 //CAPTCHACODE COMPLETED
 			 Thread.sleep(1000);
