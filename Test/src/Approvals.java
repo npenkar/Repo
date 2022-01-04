@@ -24,7 +24,7 @@ public class Approvals
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
-		String pendinglist = "https://admin-mkp.gem.gov.in//cms/admin/catalog_approval#!/oem_approval_index/catalogs?category_id=home_offi_offi_prin_comp&make=11680&dceo_view=false";
+		String pendinglist = "https://admin-mkp.gem.gov.in//cms/admin/catalog_approval#!/oem_approval_index/catalogs?category_id=home_offi_offi_prin_comp&make=87760&dceo_view=false";
 		int count = 1;
 		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\approvals.txt")).get(0);
 		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\approvals.txt")).get(1);
@@ -52,14 +52,19 @@ public class Approvals
 		driver.get(pendinglist);
 		
 		Thread.sleep(1000);
+//		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[1]/div[2]/div[2]/select")).sendKeys("Tinu");
+//		Thread.sleep(500);
+//		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[1]/div[2]/div[3]/button")).click();
+//		Thread.sleep(500);	
      	driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[1]/div/select")).sendKeys("Pending");
 		Thread.sleep(500);
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[3]/div[1]/select")).sendKeys("All");
 		Thread.sleep(500);
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[4]/div/button")).click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/oem-index-component[1]/div[1]/div[3]/catalogs-component[1]/div[1]/ul[1]/li[5]/a[1]")).click();
-		Thread.sleep(500);
+//		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/oem-index-component[1]/div[1]/div[3]/catalogs-component[1]/div[1]/ul[1]/li[5]/a[1]")).click();
+//		Thread.sleep(500);
+
 		
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request") || driver.getPageSource().contains("GeM - Government e Marketplace : Service Unavailable"))
@@ -72,7 +77,7 @@ public class Approvals
 //		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 		for(int j=1; j<=10; j++)
 		{
-		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/oem-index-component[1]/div[1]/div[3]/catalogs-component[1]/div[1]/ul[1]/li[5]/a[1]")).click();
+//		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/oem-index-component[1]/div[1]/div[3]/catalogs-component[1]/div[1]/ul[1]/li[3]/a[1]")).click();
 		long start = System.currentTimeMillis();
 		Thread.sleep(700);
 		Actions action = new Actions(driver);
