@@ -94,15 +94,14 @@ public class ModelNumber
 		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver96.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver96.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver97.exe");
 		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
 		String addnewproduct = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/new?bnid=home_offi_offi_prin_comp";
 		String search = "https://mkp.gem.gov.in/home/search?q=";
 		
 		driver.manage().window().maximize();
-		driver.get(login);
 		driver.get(login);
 		driver.findElement(By.id("loginid")).sendKeys(uname);
 		Thread.sleep(100);
@@ -113,7 +112,6 @@ public class ModelNumber
 		driver.findElement(By.xpath("//input[@id='password']")).click();
 		driver.findElement(By.xpath("//input[@id='password']")).clear();
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(pwd);
-		Thread.sleep(600);
 		Thread.sleep(600);
 		driver.findElement(By.cssSelector("#loginFrm>div.row>div:nth-child(1)>button")).click();
 		Thread.sleep(300);
@@ -513,6 +511,22 @@ public class ModelNumber
 						Thread.sleep(600);
 						StringSelection img03 = new StringSelection("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img3.png");
 						clipboard.setContents(img03, null);
+						driver.switchTo().activeElement();
+						Thread.sleep(600);
+						robot.keyPress(KeyEvent.VK_CONTROL);
+						robot.keyPress(KeyEvent.VK_V);
+						Thread.sleep(100);
+						robot.keyRelease(KeyEvent.VK_CONTROL);
+						robot.keyRelease(KeyEvent.VK_V);
+						Thread.sleep(100);
+						robot.keyPress(KeyEvent.VK_ENTER);
+						robot.keyRelease(KeyEvent.VK_ENTER);
+						Thread.sleep(4000);
+						
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[3]/div/div/button/i")).click();
+						Thread.sleep(600);
+						StringSelection img00 = new StringSelection("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img3.png");
+						clipboard.setContents(img00, null);
 						driver.switchTo().activeElement();
 						Thread.sleep(600);
 						robot.keyPress(KeyEvent.VK_CONTROL);
