@@ -46,8 +46,8 @@ public class ModelNumber
 		int count = 0;
 		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
-		System.out.println("   ::Model Number for Pooja/ Yash ::");
-		System.out.println("==> Enter P = Pooja || Enter Y for Yash : ");
+		System.out.println("   ::Model Number for Pooja/Yash/Kantado ::");
+		System.out.println("==> Enter P = Pooja || Enter Y = Yash || K = Kantado || E = Eshani: ");
 	    str = in.next();
 	    Thread.sleep(500);
 	    if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
@@ -68,7 +68,7 @@ public class ModelNumber
 			System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
 			System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
 			
-	    }else
+	    }else if(str.contentEquals("Y") || str.contains("y") || str.contains("yash"))
 	    {
 	    	Thread.sleep(500);
 	    	System.out.println("==> Yash ID Stock update selected ::: ");
@@ -88,11 +88,47 @@ public class ModelNumber
 			
 //			fio = new FileOutputStream(src);
 	    }
-
+	    else if (str.contentEquals("KT") || str.contains("kt") || str.contains("kantado") || str.contains("K"))
+	    {
+	    	Thread.sleep(500);
+	    	System.out.println("==> Kantado ID Stock update selected ::: ");
+	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\KantadoID.txt")).get(0);
+			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\KantadoID.txt")).get(1);
+			System.out.println("...	Reading Username and Password from file ...	");
+			System.out.println("Username  : " +uname);
+			System.out.println("Password : " +pwd);
+			
+			File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\KantadoProductID.xlsx"); 
+			fis = new FileInputStream(src);
+			wb = new XSSFWorkbook(fis);
+			ws = wb.getSheetAt(0);
+			rowcount = ws.getLastRowNum();
+			System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
+			System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
+	    }
+	    else
+//	    	if (str.contentEquals("ES") || str.contains("es") || str.contains("eshani") || str.contains("E"))
+	    {
+	    	Thread.sleep(500);
+	    	System.out.println("==> Eshani ID Stock update selected ::: ");
+	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\EshaniID.txt")).get(0);
+			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\EshaniID.txt")).get(1);
+			System.out.println("...	Reading Username and Password from file ...	");
+			System.out.println("Username  : " +uname);
+			System.out.println("Password : " +pwd);
+			
+			File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\EshaniProductID.xlsx"); 
+			fis = new FileInputStream(src);
+			wb = new XSSFWorkbook(fis);
+			ws = wb.getSheetAt(0);
+			rowcount = ws.getLastRowNum();
+			System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
+			System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
+	    }
 		
 		long start = System.currentTimeMillis();
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver96.exe");
-		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM chromedriver97.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver97.exe");
 		WebDriver driver = new ChromeDriver();
@@ -309,11 +345,35 @@ public class ModelNumber
 						System.out.println("String Price: " + FinalSellPrice);
 						
 						driver.get(addnewproduct);
-						Thread.sleep(2000);
+						Thread.sleep(2000);		
+						
 //						driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
-						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("Tinu");
+						if(str.contentEquals("KT") || str.contains("kt") || str.contains("kantado") || str.contains("k") || str.contains("K") )
+						{
+						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).click();	
+						Thread.sleep(600);
+						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("KANT");
+						Thread.sleep(600);
+						}
+						else if (str.contentEquals("p") || str.contains("P") || str.contains("pooja") || str.contentEquals("Y") || str.contains("y") || str.contains("yash"))
+					    {
+						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).click();	
+						Thread.sleep(600);
+						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("Tinu");	
+						Thread.sleep(600);
+					    }
+						else if (str.contentEquals("E") || str.contains("e") || str.contains("eshani") || str.contains("ESHANI"))
+						{
+						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).click();	
+						Thread.sleep(600);
+						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("ESHA");	
+						Thread.sleep(600);
+					    }
+						
+						
 						driver.findElement(By.name("copy_catalog_id")).sendKeys(ProductID);
 						Thread.sleep(500);
+						
 						driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[5]/div[3]/button[1]")).click();
 						Thread.sleep(500);
 						driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/button[2]")).click();
@@ -334,7 +394,7 @@ public class ModelNumber
 						Thread.sleep(3000);
 						
 //image 0
-						driver.findElement(By.xpath("//button[@id='spec-upload-btn']")).click();
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[15]/div[4]/document-upload/div[1]/fieldset/div[2]/button")).click();
 						Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 						StringSelection img0 = new StringSelection("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img0.png");					
 						clipboard.setContents(img0, null);
@@ -350,12 +410,13 @@ public class ModelNumber
 						robot.keyRelease(KeyEvent.VK_ENTER);
 						Thread.sleep(3000);
 		
-					    if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
+					    if(str.contentEquals("KT") || str.contains("kt") || str.contains("kantado") || str.contains("k") || str.contentEquals("E") || str.contains("e") || str.contains("eshani") || str.contains("ESHANI"))
 					    {
-					    driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("OEM");
+					    driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("e"
+					    		+ "");
 						Thread.sleep(100);
 					    }
-					    else
+					    else if (str.contentEquals("p") || str.contains("P") || str.contains("pooja") || str.contentEquals("Y") || str.contains("y") || str.contains("yash"))
 					    {
 //Resellers Details
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/selling-as[1]/div[1]/div[1]/div[2]/select[1]")).sendKeys("Resellers");
@@ -412,8 +473,8 @@ public class ModelNumber
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[14]/div[2]/input")).sendKeys(FinalMRP);
 						Thread.sleep(100);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[16]/div[2]/input")).sendKeys(FinalSellPrice);
-						Thread.sleep(400);
-						driver.findElement(By.xpath(".//tbody/tr[1]/td[1]/input[1]")).click();
+						Thread.sleep(600);
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[3]/div/location-picker/div/uib-accordion/div/div[1]/div[2]/div/zone-location-picker/table/tbody/tr[1]/td[1]/input")).click();
 						Thread.sleep(100);
 						driver.switchTo().alert().accept();
 						Thread.sleep(100);
@@ -444,7 +505,7 @@ public class ModelNumber
 						Thread.sleep(5000);
 						
 //	trademark
-						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[4]/div/div[2]/div/fieldset/div[2]/div[4]/document-upload/div[1]/fieldset/div[2]/button")).click();;
+						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[4]/div/div[2]/div/fieldset/div[2]/div[4]/document-upload/div[1]/fieldset/div[2]/button/i[1]")).click();;
 						StringSelection copyTM01 = new StringSelection("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\TRADMARK_compressed.pdf");					
 						Thread.sleep(500);
 						clipboard.setContents(copyTM01, null);
@@ -525,7 +586,7 @@ public class ModelNumber
 						
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[3]/div/div/button/i")).click();
 						Thread.sleep(600);
-						StringSelection img00 = new StringSelection("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img3.png");
+						StringSelection img00 = new StringSelection("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\img0.png");
 						clipboard.setContents(img00, null);
 						driver.switchTo().activeElement();
 						Thread.sleep(600);
