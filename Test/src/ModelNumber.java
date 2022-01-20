@@ -391,7 +391,7 @@ public class ModelNumber
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[2]/div[1]/div[2]/div[1]/fieldset[1]/div[2]/div[2]/input[1]")).sendKeys(Title);
 						Thread.sleep(500);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[2]/div/div[2]/div/fieldset/div[7]/div[2]/button")).click();
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 						
 //image 0
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[15]/div[4]/document-upload/div[1]/fieldset/div[2]/button")).click();
@@ -408,7 +408,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 		
 					    if(str.contentEquals("KT") || str.contains("kt") || str.contains("kantado") || str.contains("k") || str.contentEquals("E") || str.contains("e") || str.contains("eshani") || str.contains("ESHANI"))
 					    {
@@ -502,7 +502,7 @@ public class ModelNumber
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[6]/div[2]/input")).sendKeys("1");
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[7]/div[2]/input")).sendKeys("10");
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[19]/div[2]/button")).click();
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 						
 //	trademark
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[4]/div/div[2]/div/fieldset/div[2]/div[4]/document-upload/div[1]/fieldset/div[2]/select")).sendKeys("Any Other");	
@@ -521,7 +521,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 						
 		
 						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[1]/form-builder[1]/div[1]/div[1]/div[1]/fieldset[1]/div[3]/div[1]/div[2]/div[1]/element[1]/div[1]/input[1]")).clear();
@@ -536,7 +536,7 @@ public class ModelNumber
 						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[1]/form-builder[1]/div[1]/div[1]/div[1]/fieldset[1]/div[5]/div[1]/div[2]/div[1]/element[1]/div[1]/input[1]")).sendKeys(PartNew);
 						Thread.sleep(1000);
 						driver.findElement(By.xpath(".//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[4]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/button[1]")).click();
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 						
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[1]/div/div/button/i")).click();
 						Thread.sleep(600);
@@ -552,7 +552,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 								
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[2]/div/div/button/i")).click();
 						Thread.sleep(600);
@@ -568,7 +568,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 		
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[3]/div/div/button/i")).click();
 						Thread.sleep(600);
@@ -584,7 +584,7 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 						
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[2]/div[1]/div[3]/div/div/button/i")).click();
 						Thread.sleep(600);
@@ -600,12 +600,12 @@ public class ModelNumber
 						Thread.sleep(100);
 						robot.keyPress(KeyEvent.VK_ENTER);
 						robot.keyRelease(KeyEvent.VK_ENTER);
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[4]/div[2]/input")).click();
 						Thread.sleep(300);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[5]/div/div[2]/div/fieldset/div[5]/div[2]/button")).click();
-						Thread.sleep(7000);
+						Thread.sleep(5000);
 		
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div/a")).click();
 						Thread.sleep(1000);
@@ -678,7 +678,7 @@ public class ModelNumber
 						}	
 						}while( ( driver.getPageSource().contains("Invalid captcha") ||( driver.getPageSource().contains("Please enter captcha"))));
 //CAPTCHACODE COMPLETED
-						 Thread.sleep(7000);
+						 Thread.sleep(5000);
 						
 					
 					 if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
@@ -692,7 +692,7 @@ public class ModelNumber
 						fio.flush();
 						fio.close();
 						System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
-					}else 
+					}else if(str.contentEquals("y") || str.contains("Yash") || str.contains("YS"))
 					{
 						File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\YashModelNumber.xlsx"); 
 						FileOutputStream fio = new FileOutputStream(src);
@@ -703,7 +703,35 @@ public class ModelNumber
 						fio.flush();
 						fio.close();
 						System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
+					}else if(str.contentEquals("k") || str.contains("kt") || str.contains("kantado"))
+					{
+						File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\KantadoProductID.xlsx"); 
+						FileOutputStream fio = new FileOutputStream(src);
+						ws.removeRow(ws.getRow(0));
+						int lastrow = ws.getLastRowNum();
+						ws.shiftRows(i+1, lastrow, -1);
+						wb.write(fio);
+						fio.flush();
+						fio.close();
+						System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
+					}else if (str.contentEquals("e") || str.contains("es") || str.contains("eshani"))
+					{
+						File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\EshaniProductID.xlsx"); 
+						FileOutputStream fio = new FileOutputStream(src);
+						ws.removeRow(ws.getRow(0));
+						int lastrow = ws.getLastRowNum();
+						ws.shiftRows(i+1, lastrow, -1);
+						wb.write(fio);
+						fio.flush();
+						fio.close();
+						System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
 					}
+					 
+					 
+					 
+					 
+					 
+					 
 						count++;
 						System.out.println("		कितना लिस्टिंग हुआ बे ????");
 				    	System.out.println("		Total " + count +" LISTING हुआ सरकार...");
