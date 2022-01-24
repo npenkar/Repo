@@ -4,12 +4,15 @@ import java.util.Scanner;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import javax.imageio.ImageIO;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,8 +30,8 @@ public class StockUpdate {
 		String str;
 		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
-		System.out.println("   :: Stock update for Pooja/ Yash ::");
-		System.out.println("==> Enter P = Pooja || Enter Y for Yash : ");
+		System.out.println("   :: Stock update for Pooja/ Yash/ Kantado/ Eshani ::");
+		System.out.println("==> Enter P = Pooja || Enter Y = Yash || K = Kantado || E = Eshani: ");
 	    str = in.next();
 	    Thread.sleep(500);
 	    if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
@@ -42,7 +45,7 @@ public class StockUpdate {
 			System.out.println("Username  : " +uname);
 			System.out.println("Password : " +pwd);
 			System.out.println("Page Number for stock update : " +pnum);
-	    }else
+	    }else if (str.contentEquals("y") || str.contains("Y") || str.contains("yash"))
 	    {
 	    	Thread.sleep(500);
 	    	System.out.println("==> Yash ID Stock update selected ::: ");
@@ -53,6 +56,29 @@ public class StockUpdate {
 			System.out.println("Username  : " +uname);
 			System.out.println("Password : " +pwd);
 			System.out.println("Page Number for stock update : " +pnum);
+	    }
+	    else if (str.contentEquals("KT") || str.contains("kt") || str.contains("kantado") || str.contains("K") ||  str.contains("k"))
+	    {
+	    	Thread.sleep(500);
+	    	System.out.println("==> Kantado ID Stock update selected ::: ");
+	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\KantadoID.txt")).get(0);
+			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\KantadoID.txt")).get(1);
+			System.out.println("...	Reading Username and Password from file ...	");
+			System.out.println("Username  : " +uname);
+			System.out.println("Password : " +pwd);
+			
+	    }
+	    else
+
+//	    	if(str.contentEquals("ES") || str.contains("es") || str.contains("eshani") || str.contains("E"))
+	    {
+	    	Thread.sleep(500);
+	    	System.out.println("==> Eshani ID Stock update selected ::: ");
+	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\EshaniID.txt")).get(0);
+			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\EshaniID.txt")).get(1);
+			System.out.println("...	Reading Username and Password from file ...	");
+			System.out.println("Username  : " +uname);
+			System.out.println("Password : " +pwd);
 	    }
 
 	    long start = System.currentTimeMillis(); 
@@ -99,7 +125,7 @@ public class StockUpdate {
 for(int i=0; i<500; i++)
 {	
 	
-	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li["+pnum+"]/a")).click(); // PAGEnumber
+	driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/ul/li["+"4"+"]/a")).click(); // PAGEnumber pnum
 
 		Thread.sleep(3000);
 	for(int j=1;j<=10;j++)
