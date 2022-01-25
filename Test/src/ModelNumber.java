@@ -349,21 +349,21 @@ public class ModelNumber
 						Thread.sleep(2000);		
 						
 //						driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
-						if(str.contentEquals("KT") || str.contains("kt") || str.contains("kantado") || str.contains("k") || str.contains("K") )
+						if (str.contentEquals("KT") || (str.contentEquals("kt")))
 						{
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).click();	
 						Thread.sleep(600);
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("KANT");
 						Thread.sleep(600);
 						}
-						else if (str.contentEquals("p") || str.contains("P") || str.contains("pooja") || str.contentEquals("Y") || str.contains("y") || str.contains("yash"))
+						else if  ((str.contentEquals("PJ") || (str.contentEquals("pj"))) ||  (str.contentEquals("YH") || (str.contentEquals("yh"))))
 					    {
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).click();	
 						Thread.sleep(600);
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).sendKeys("Tinu");	
 						Thread.sleep(600);
 					    }
-						else if (str.contentEquals("E") || str.contains("e") || str.contains("eshani") || str.contains("ESHANI"))
+						else if  (str.contentEquals("ES") || (str.contentEquals("es")))
 						{
 						driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[1]/div[1]/div[2]/div[1]/fieldset[1]/div[3]/div[2]/select[1]")).click();	
 						Thread.sleep(600);
