@@ -47,10 +47,10 @@ public class ModelNumber
 		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 		System.out.println("   ::Model Number for Pooja/Yash/Kantado ::");
-		System.out.println("==> Enter P = Pooja || Enter Y = Yash || K = Kantado || E = Eshani: ");
+		System.out.println("==> Enter PJ = Pooja || Enter YH = Yash || KT = Kantado || ES = Eshani ");
 	    str = in.next();
 	    Thread.sleep(500);
-	    if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
+	    if(str.contentEquals("pj") || str.contains("PJ"))
 	    {
 	    	Thread.sleep(500);
 	    	System.out.println("==> Pooja ID Stock update selected ::: ");
@@ -68,7 +68,7 @@ public class ModelNumber
 			System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
 			System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
 			
-	    }else if(str.contentEquals("Y") || str.contains("y") || str.contains("yash"))
+	    }else if(str.contentEquals("YH") || str.contains("yh"))
 	    {
 	    	Thread.sleep(500);
 	    	System.out.println("==> Yash ID Stock update selected ::: ");
@@ -88,7 +88,7 @@ public class ModelNumber
 			
 //			fio = new FileOutputStream(src);
 	    }
-	    else if (str.contentEquals("KT") || str.contains("kt") || str.contains("kantado") || str.contains("K"))
+	    else if (str.contentEquals("KT") || (str.contentEquals("kt")))
 	    {
 	    	Thread.sleep(500);
 	    	System.out.println("==> Kantado ID Stock update selected ::: ");
@@ -106,8 +106,7 @@ public class ModelNumber
 			System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
 			System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
 	    }
-	    else
-//	    	if (str.contentEquals("ES") || str.contains("es") || str.contains("eshani") || str.contains("E"))
+	    else  //if (str.contentEquals("ES") || str.contains("es"))
 	    {
 	    	Thread.sleep(500);
 	    	System.out.println("==> Eshani ID Stock update selected ::: ");
@@ -125,6 +124,8 @@ public class ModelNumber
 			System.out.println("		कितने Product ID हे रे सांभा ????" + rowcount);
 			System.out.println("		सरकार "+rowcount+" ID हे Excel में" );
 	    }
+	    	
+	    
 		
 		long start = System.currentTimeMillis();
 		Runtime.getRuntime().exec("taskkill /F /IM chromedriver97.exe");
@@ -670,7 +671,7 @@ public class ModelNumber
 								
 						if (driver.getPageSource().contains("Upload another product") || (driver.getPageSource().contains("Catalogue already uploaded by you:")))
 						{
-							driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[2]")).click();
+//							driver.findElement(By.xpath("/html/body/div[1]/div/div/div[3]/div[2]")).click();
 							break;
 						}
 						else {
@@ -681,7 +682,7 @@ public class ModelNumber
 						 Thread.sleep(5000);
 						
 					
-					 if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
+					 if (str.contentEquals("PJ") || str.contains("pj"))
 					 {
 						File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\PoojaModelNumber.xlsx"); 
 						FileOutputStream fio = new FileOutputStream(src);
@@ -692,7 +693,7 @@ public class ModelNumber
 						fio.flush();
 						fio.close();
 						System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
-					}else if(str.contentEquals("y") || str.contains("Yash") || str.contains("YS"))
+					}else if (str.contentEquals("YH") || str.contains("yh"))
 					{
 						File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\YashModelNumber.xlsx"); 
 						FileOutputStream fio = new FileOutputStream(src);
@@ -703,7 +704,7 @@ public class ModelNumber
 						fio.flush();
 						fio.close();
 						System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
-					}else if(str.contentEquals("k") || str.contains("kt") || str.contains("kantado"))
+					}else if (str.contentEquals("KT") || str.contains("kt"))
 					{
 						File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\KantadoProductID.xlsx"); 
 						FileOutputStream fio = new FileOutputStream(src);
@@ -714,7 +715,7 @@ public class ModelNumber
 						fio.flush();
 						fio.close();
 						System.out.println("		इसका  " +ProductID+ "  लिस्टिंग हो गया 🔥🔥🔥 ");
-					}else if (str.contentEquals("e") || str.contains("es") || str.contains("eshani"))
+					}else if (str.contentEquals("ES") || str.contains("es"))
 					{
 						File src = new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\EshaniProductID.xlsx"); 
 						FileOutputStream fio = new FileOutputStream(src);
@@ -746,7 +747,7 @@ public class ModelNumber
 		}
 		}
 		}
-		 driver.close();
+		}
 	}
-}
+
 	
