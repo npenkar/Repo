@@ -1,11 +1,16 @@
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
 public class Oprations {
 
@@ -13,49 +18,68 @@ public class Oprations {
 		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
 //		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver94.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver97.exe");
 		
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("disable-infobars"); //"--headless",  "--window-size=1920,1200" , 
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("disable-infobars"); //"--headless",  "--window-size=1920,1200" , 
 		
-		WebDriver driver = new ChromeDriver(options);
-//		options.setHeadless(true);
+//		WebDriver driver = new ChromeDriver(options);
+		WebDriver driver = new ChromeDriver();
 		System.out.println("	Chrome Chalu hua... ");
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
-		
-		String addnewproduct = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/new?bnid=home_offi_offi_prin_comp";
-//		String addnewproduct = "https://admin-mkp.gem.gov.in/#!/catalog/new?id=4153684-23347374817-cat&bnid=home_offi_offi_prin_comp";
-
-		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(0);
-		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(1);
-		System.out.println("	Reading Username and Password from file... ");
-		
 		driver.manage().window().maximize();
-		driver.get(login);
-		System.out.println("	Login page Open hua... ");
-		driver.findElement(By.id("loginid")).sendKeys(uname);
-		Thread.sleep(100);
-		driver.findElement(By.xpath("/html[1]/body[1]/section[5]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[4]/div[2]/button[1]")).click();
-		Thread.sleep(100);
-		driver.findElement(By.id("captcha_math")).click();
-		System.out.println("	Time To Enter Captcha here ... ");
+		Actions action = new Actions(driver);
 		
-//		Tess4j OCR
+		driver.get("https://www.google.com");
+//		Robot robot = new Robot();
+//		robot.keyPress(KeyEvent.VK_CONTROL);
+//		Thread.sleep(500);
+		WebElement link =  driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/div/div/div[1]/div/div[1]/a"));
+//		Thread.sleep(500);
+//		robot.keyRelease(KeyEvent.VK_CONTROL);
+//		Thread.sleep(2000);
+		
+		
+		action.keyDown(Keys.CONTROL).moveToElement(link).click().perform();
 		
 		
 		
-		Thread.sleep(600);
-		driver.findElement(By.xpath("//input[@id='password']")).click();
-		driver.findElement(By.xpath("//input[@id='password']")).clear();
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(pwd);
-		Thread.sleep(600);
-		Thread.sleep(600);
-		driver.findElement(By.cssSelector("#loginFrm>div.row>div:nth-child(1)>button")).click();
-		Thread.sleep(600);
-		options.setHeadless(true);
-		driver.get(addnewproduct);
-		System.out.println("	addnewproduct Open hua abhi... ");
+//		options.setHeadless(true);
+
+//		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
+//		
+//		String addnewproduct = "https://admin-mkp.gem.gov.in/admin/cat/catalog/angular_catalog/#!/catalog/new?bnid=home_offi_offi_prin_comp";
+////		String addnewproduct = "https://admin-mkp.gem.gov.in/#!/catalog/new?id=4153684-23347374817-cat&bnid=home_offi_offi_prin_comp";
+//
+//		String uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(0);
+//		String pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\creden.txt")).get(1);
+//		System.out.println("	Reading Username and Password from file... ");
+		
+//		driver.manage().window().maximize();
+//		driver.get(login);
+//		System.out.println("	Login page Open hua... ");
+//		driver.findElement(By.id("loginid")).sendKeys(uname);
+//		Thread.sleep(100);
+//		driver.findElement(By.xpath("/html[1]/body[1]/section[5]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[4]/div[2]/button[1]")).click();
+//		Thread.sleep(100);
+//		driver.findElement(By.id("captcha_math")).click();
+//		System.out.println("	Time To Enter Captcha here ... ");
+//		
+////		Tess4j OCR
+//		
+//		
+//		
+//		Thread.sleep(600);
+//		driver.findElement(By.xpath("//input[@id='password']")).click();
+//		driver.findElement(By.xpath("//input[@id='password']")).clear();
+//		driver.findElement(By.xpath("//input[@id='password']")).sendKeys(pwd);
+//		Thread.sleep(600);
+//		Thread.sleep(600);
+//		driver.findElement(By.cssSelector("#loginFrm>div.row>div:nth-child(1)>button")).click();
+//		Thread.sleep(600);
+//		options.setHeadless(true);
+//		driver.get(addnewproduct);
+//		System.out.println("	addnewproduct Open hua abhi... ");
 	
 //		for(int i = 0; i<1000 ; i++)
 //		{

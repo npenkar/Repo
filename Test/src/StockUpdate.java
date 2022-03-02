@@ -83,9 +83,9 @@ public class StockUpdate {
 	    }
 
 	    long start = System.currentTimeMillis(); 
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver96.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver98.exe");
 		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
-		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver97.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\chromedriver98.exe");
 
 		WebDriver driver = new ChromeDriver();
 		Actions action = new Actions(driver);
