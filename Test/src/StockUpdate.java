@@ -64,6 +64,7 @@ public class StockUpdate {
 	    	System.out.println("==> Kantado ID Stock update selected ::: ");
 	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\KantadoID.txt")).get(0);
 			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\KantadoID.txt")).get(1);
+			pnum = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\pagenumber.txt")).get(0);
 			System.out.println("...	Reading Username and Password from file ...	");
 			System.out.println("Username  : " +uname);
 			System.out.println("Password : " +pwd);
@@ -77,6 +78,7 @@ public class StockUpdate {
 	    	System.out.println("==> Eshani ID Stock update selected ::: ");
 	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\EshaniID.txt")).get(0);
 			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\EshaniID.txt")).get(1);
+			pnum = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\pagenumber.txt")).get(0);
 			System.out.println("...	Reading Username and Password from file ...	");
 			System.out.println("Username  : " +uname);
 			System.out.println("Password : " +pwd);
@@ -187,28 +189,36 @@ for(int i=0; i<500; i++)
 		
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 //		box20
-		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).size() != 0)
-		{
-			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
-		}else
-		{
-			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
-		}
+//		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/show-captcha/div/div[2]/input")).size() != 0)
+//		{
+//			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
+//		}else
+//		{
+//			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
+//		}
 		
 //		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys("a");
 		
 //		uPDATE20/21
-		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span")).size() != 0)
-		{
-			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span"));
-			action.moveToElement(Submit).click().build().perform();
-		}else
-		{
-			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/button/span"));
-			action.moveToElement(Submit).click().build().perform();
-		}
+//		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/button/span")).size() != 0)
+//			
+//				{
+//			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/button/span"));
+//			action.moveToElement(Submit).click().build().perform();
+//		}else
+//		{
+//			WebElement Submit1 = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[19]/div[2]/button/span"));
+//			action.moveToElement(Submit1).click().build().perform();
+//		}
 		
-//		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("//input[@id='captcha-text']")).clear();
+		driver.findElement(By.xpath("//input[@id='captcha-text']")).sendKeys("a");
+		
+		Thread.sleep(200);
+		driver.findElement(By.xpath("//span[contains(text(),'Update Stock')]")).click();
+		Thread.sleep(1000);
+		
 //		captcha check start here
 					
 		do {
@@ -217,33 +227,44 @@ for(int i=0; i<500; i++)
 			Thread.sleep(1000);
 		
 //		REFRESH20/21
-		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[1]/i")).size() != 0)
-		{
-			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[1]/i")).click();
-		}else
-		{
-			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[1]/i")).click();
-		}
+//		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/show-captcha/div/div[1]/i")).size() != 0)
+//		{
+//			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/show-captcha/div/div[1]/i")).click();
+//		}else
+//		{
+//			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[19]/div[2]/show-captcha/div/div[1]/i")).click();
+//		}
+		
+		driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[21]/div[2]/show-captcha[1]/div[1]/div[1]/i[1]")).click();
+		
 		
 //		CAPTCHA20/21
-		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[1]/img")).size() != 0)
-		{
-			WebElement captchaElement = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[1]/img"));
-			String captcha = captchaElement.getAttribute("src");
-			Thread.sleep(600);
-			URL CAPTCHAURL = new URL(captcha);
-			BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
-			ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
-		}else
-		{
-			WebElement captchaElement = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[1]/img"));
-			String captcha = captchaElement.getAttribute("src");
-			Thread.sleep(600);
-			URL CAPTCHAURL = new URL(captcha);
-			BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
-			ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
-		}
+//		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[2]/show-captcha/div/div[1]/img")).size() != 0)
+//		{
+//			WebElement captchaElement = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[1]/img"));
+//			String captcha = captchaElement.getAttribute("src");
+//			Thread.sleep(600);
+//			URL CAPTCHAURL = new URL(captcha);
+//			BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
+//			ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
+//		}else
+//		{
+//			WebElement captchaElement = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[1]/img"));
+//			String captcha = captchaElement.getAttribute("src");
+//			Thread.sleep(600);
+//			URL CAPTCHAURL = new URL(captcha);
+//			BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
+//			ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
+//		}
 			
+		WebElement captchaElement = driver.findElement(By.xpath("//body/div[@id='page']/div[@id='bd']/div[@id='content-slot']/div[1]/div[1]/new-component[1]/div[1]/form[1]/uib-accordion[1]/div[1]/ng-form[3]/div[1]/div[2]/div[1]/fieldset[1]/div[21]/div[2]/show-captcha[1]/div[1]/div[1]/img[1]"));
+		String captcha = captchaElement.getAttribute("src");
+		Thread.sleep(600);
+		URL CAPTCHAURL = new URL(captcha);
+		BufferedImage saveCAPTCHA = ImageIO.read(CAPTCHAURL);
+		ImageIO.write(saveCAPTCHA, "png", new File("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\captcha.png"));
+		
+		
 		Tesseract tesseract = new Tesseract();
 		tesseract.setDatapath("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\OCRlib\\Tess4J");
 					// the path of your tess data folder
@@ -253,17 +274,18 @@ for(int i=0; i<500; i++)
 		String CapitalCaptcha = captchaTotext.toUpperCase();
 		System.out.print(CapitalCaptcha);
 			
-		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).size() != 0)
-		{
-			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).clear();
-			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);
-		}else
-		{
-			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).clear();
-			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);	
-		}
-//		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input"))
-//		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);
+//		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).size() != 0)
+//		{
+//			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).clear();
+//			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);
+//		}else
+//		{
+//			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).clear();
+//			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/show-captcha/div/div[2]/input")).sendKeys(CapitalCaptcha);	
+//		}
+
+		driver.findElement(By.xpath("//input[@id='captcha-text']")).clear();
+		driver.findElement(By.xpath("//input[@id='captcha-text']")).sendKeys(CapitalCaptcha);
 		Thread.sleep(1000);
 //		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/show-captcha/div/div[3]/label")).click();
 //		Thread.sleep(1000);
@@ -271,15 +293,17 @@ for(int i=0; i<500; i++)
 				//				============= Tess4J CAPTCHA Tweak end =============
 		
 //		uPDATE20/21
-		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span")).size() != 0)
-		{
-			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span"));
-			action.moveToElement(Submit).click().build().perform();
-		}else
-		{
-			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/button/span"));
-			action.moveToElement(Submit).click().build().perform();
-		}
+//		if(driver.findElements(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span")).size() != 0)
+//		{
+//			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[20]/div[2]/button/span"));
+//			action.moveToElement(Submit).click().build().perform();
+//		}else
+//		{
+//			WebElement Submit = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[21]/div[2]/button/span"));
+//			action.moveToElement(Submit).click().build().perform();
+//		}
+		
+		driver.findElement(By.xpath("//span[contains(text(),'Update Stock')]")).click();
 		
 		
 //		Thread.sleep(500);
@@ -291,7 +315,7 @@ for(int i=0; i<500; i++)
 //		Thread.sleep(500);
 //		action.moveToElement(Submit).click().build().perform();
 //		driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/input")).click();;
-		Thread.sleep(1500);
+		Thread.sleep(2000);
 				
 		if (driver.getPageSource().contains("Stock Updated Successfully"))
 		{
