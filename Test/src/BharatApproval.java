@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -50,8 +51,8 @@ public class BharatApproval
 		{
 		Robot robot = new Robot();
 		driver.get(pendinglist);
+		Thread.sleep(3000);
 		
-		Thread.sleep(5000);
 //		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[1]/div[2]/div[2]/select")).sendKeys("Tinu");
 //		Thread.sleep(500);
 //		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[1]/div[2]/div[3]/button")).click();
@@ -61,9 +62,9 @@ public class BharatApproval
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[3]/div[1]/select")).sendKeys("All");
 		Thread.sleep(500);
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/filters/div[4]/div/button")).click();
-		Thread.sleep(5000);
-//		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/oem-index-component[1]/div[1]/div[3]/catalogs-component[1]/div[1]/ul[1]/li[5]/a[1]")).click();
-//		Thread.sleep(500);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div/oem-index-component/div/div[3]/catalogs-component/div/ul/li[4]/a")).click();
+		Thread.sleep(1000);
 
 		
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
@@ -77,19 +78,22 @@ public class BharatApproval
 //		driver.findElement(By.xpath("//img[@id='floxChatCloseImage']")).click();
 		for(int j=1; j<=10; j++)
 		{
-//		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/oem-index-component[1]/div[1]/div[3]/catalogs-component[1]/div[1]/ul[1]/li[3]/a[1]")).click();
+		
 		long start = System.currentTimeMillis();
 		Thread.sleep(700);
 		Actions action = new Actions(driver);
 		WebElement link = driver.findElement(By.xpath("//tbody/tr["+j+"]/td[11]/a[1]"));
-		action.moveToElement(link).contextClick().build().perform();
-		Thread.sleep(600);
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
-		Thread.sleep(200);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(700);
+		action.keyDown(Keys.CONTROL).moveToElement(link).click().perform();
+		Thread.sleep(100);
+		
+//		action.moveToElement(link).contextClick().build().perform();
+//		Thread.sleep(600);
+//		robot.keyPress(KeyEvent.VK_DOWN);
+//		robot.keyRelease(KeyEvent.VK_DOWN);
+//		Thread.sleep(200);
+//		robot.keyPress(KeyEvent.VK_ENTER);
+//		robot.keyRelease(KeyEvent.VK_ENTER);
+//		Thread.sleep(700);
 		
 		ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
@@ -110,6 +114,8 @@ public class BharatApproval
 		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/approval-component[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys("25");
 		Thread.sleep(200);
 		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/approval-component[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[1]/input[1]")).sendKeys(Price);
+		Thread.sleep(200);
+		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/approval-component[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).sendKeys("25");
 		Thread.sleep(200);
 		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/approval-component[1]/div[1]/div[4]/div[1]/div[1]/div[2]/div[1]/button[1]")).click();
 		Thread.sleep(3000);
