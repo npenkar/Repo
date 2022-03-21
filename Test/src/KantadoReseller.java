@@ -164,7 +164,7 @@ public class KantadoReseller
 			Thread.sleep(1000);
 			
 			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-			 if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request"))
+			 if ( driver.getPageSource().contains("An error occurred.") || driver.getPageSource().contains("Bad Request") || driver.getPageSource().contains("Looking for something?"))
 			 {
 				 driver.navigate().refresh();
 				 System.out.println("Error: page not loaded correctly ......., refreshing ... for " + ProductID);
@@ -639,8 +639,9 @@ public class KantadoReseller
 						do {
 						if(( driver.getPageSource().contains("Invalid captcha") ||( driver.getPageSource().contains("Please enter captcha")) || ( driver.getPageSource().contains("Catalogue already uploaded by you"))))
 										
-							Thread.sleep(1000);
+						Thread.sleep(1500);
 						driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/div[4]/div[3]/show-captcha/div/div[1]/i")).click();
+						Thread.sleep(500);
 						WebElement captchaElement = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[1]/div[1]/div[1]/new-component[1]/div[1]/form[1]/div[4]/div[3]/show-captcha[1]/div[1]/div[1]/img[1]"));
 						String captcha = captchaElement.getAttribute("src");
 						Thread.sleep(600);
