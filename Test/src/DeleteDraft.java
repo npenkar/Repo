@@ -76,7 +76,8 @@ public class DeleteDraft {
 //                Thread.sleep(5000);
                 
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr["+j+"]/td[12]/span[3]"));
+//				WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr["+j+"]/td[12]/span[3]"));
+				WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/index-component/div[2]/div/div[4]/table/tbody/tr[1]/td[12]/span[3]/a"));
 //				Thread.sleep(500);
 				JavascriptExecutor executor = (JavascriptExecutor) driver;
 				executor.executeScript("arguments[0].click();", element);

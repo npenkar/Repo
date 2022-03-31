@@ -85,8 +85,8 @@ public class StockUpdate {
 	    }
 
 	    long start = System.currentTimeMillis(); 
-		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver99.exe");
-		Runtime.getRuntime().exec("taskkill /F /IM Chrome.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM chromedriver99.exe");
+		Runtime.getRuntime().exec("taskkill /F /IM chrome.exe");
 		System.setProperty("webdriver.chrome.driver", "C:\\Np\\Dev\\Eclipse\\Repo\\Test\\jars\\ChromeDriver99.exe");
 
 		WebDriver driver = new ChromeDriver();
@@ -157,7 +157,7 @@ for(int i=0; i<500; i++)
 		ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 		Thread.sleep(5000);
-
+		
 		WebElement country = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[1]/div[2]/div[1]/div[1]/input"));
 		country.click();
 		Thread.sleep(100);
