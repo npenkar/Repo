@@ -84,7 +84,7 @@ public class DeleteDraft {
 //				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
 				Thread.sleep(500);
 				driver.findElement(By.xpath("//button[contains(text(),'Yes')]")).click();
-				Thread.sleep(4000);
+				Thread.sleep(5000);
 				
 				count++;
 				long ExecutionTime = (System.currentTimeMillis() - start);
