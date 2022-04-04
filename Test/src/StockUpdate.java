@@ -19,6 +19,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import net.sourceforge.tess4j.Tesseract;
 
 public class StockUpdate {
@@ -32,7 +35,7 @@ public class StockUpdate {
 		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 		System.out.println("   :: Stock update for Pooja/ Yash/ Kantado/ Eshani ::");
-		System.out.println("==> Enter P = Pooja || Enter Y = Yash || K = Kantado || E = Eshani: ");
+		System.out.println("==> Enter P = Pooja || Enter Y = Yash || K = Kantado || E = Eshani || V = Vision ");
 	    str = in.next();
 	    Thread.sleep(500);
 	    if(str.contentEquals("p") || str.contains("P") || str.contains("pooja"))
@@ -68,11 +71,12 @@ public class StockUpdate {
 			System.out.println("...	Reading Username and Password from file ...	");
 			System.out.println("Username  : " +uname);
 			System.out.println("Password : " +pwd);
+			System.out.println("Page Number for stock update : " +pnum);
 			
 	    }
 	    else
 
-//	    	if(str.contentEquals("ES") || str.contains("es") || str.contains("eshani") || str.contains("E"))
+	    	if(str.contentEquals("ES") || str.contains("es") || str.contains("eshani") || str.contains("E"))
 	    {
 	    	Thread.sleep(500);
 	    	System.out.println("==> Eshani ID Stock update selected ::: ");
@@ -82,6 +86,19 @@ public class StockUpdate {
 			System.out.println("...	Reading Username and Password from file ...	");
 			System.out.println("Username  : " +uname);
 			System.out.println("Password : " +pwd);
+			System.out.println("Page Number for stock update : " +pnum);
+	    }
+	    else // if(str.contentEquals("VS") || str.contains("vs") || str.contains("vision") || str.contains("V"))
+	    {
+	    	Thread.sleep(500);
+	    	System.out.println("==> Vision ID Stock update selected ::: ");
+	    	uname = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\VisionID.txt")).get(0);
+			pwd = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\VisionID.txt")).get(1);
+			pnum = Files.readAllLines(Paths.get("C:\\Np\\Dev\\Eclipse\\Repo\\Test\\resource\\pagenumber.txt")).get(0);
+			System.out.println("...	Reading Username and Password from file ...	");
+			System.out.println("Username  : " +uname);
+			System.out.println("Password : " +pwd);
+			System.out.println("Page Number for stock update : " +pnum);
 	    }
 
 	    long start = System.currentTimeMillis(); 
@@ -157,6 +174,12 @@ for(int i=0; i<500; i++)
 		ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
 		Thread.sleep(5000);
+		
+		WebDriverWait w = new WebDriverWait(driver, 10);
+	    w.until(ExpectedConditions.invisibilityOfElementLocated( (By.id("loading-bar"))));
+	    Thread.sleep(1000);
+	    w.until(ExpectedConditions.invisibilityOfElementLocated( (By.id("loading-bar-spinner"))));
+		
 		
 		WebElement country = driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[1]/div[2]/div[1]/div[1]/input"));
 		country.click();
