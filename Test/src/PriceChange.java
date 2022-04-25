@@ -101,7 +101,7 @@ public class PriceChange {
 //		no change
 		WebDriver driver = new ChromeDriver();
 		
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
 		String url1 = "https://admin-mkp.gem.gov.in/#!/catalog/new?id=";
@@ -132,6 +132,7 @@ public class PriceChange {
 		int rowcount = ws.getLastRowNum();
 		int count = 0;
 		System.out.println("Total Product  ::  " + rowcount);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 //		for loop start
 		for (int i = 0; i < rowcount; ) 
