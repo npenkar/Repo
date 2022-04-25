@@ -101,7 +101,7 @@ public class PriceChange {
 //		no change
 		WebDriver driver = new ChromeDriver();
 		
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 		String login = "https://sso.gem.gov.in/ARXSSO/oauth/doLogin";
 		String url1 = "https://admin-mkp.gem.gov.in/#!/catalog/new?id=";
@@ -153,10 +153,16 @@ public class PriceChange {
 			String UpdatedStringPrice = String.valueOf(UpdatedIntPrice);
 			System.out.println("Updated String Price :: " + UpdatedStringPrice);
 			
+//			PRICE UPDATE
 			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[16]/div[2]/input")).clear();
 			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[16]/div[2]/input")).sendKeys(UpdatedStringPrice);
 			Thread.sleep(1000);
 
+//			STOCK UPDATE TO 200
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[5]/div[2]/input")).clear();
+			driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div/div/new-component/div/form/uib-accordion/div/ng-form[3]/div/div[2]/div/fieldset/div[18]/div[5]/div[2]/input")).sendKeys("200");
+			Thread.sleep(1000);
+			
 			driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 			
 
