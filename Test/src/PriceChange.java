@@ -149,7 +149,7 @@ public class PriceChange {
 			System.out.println("Current String Price :: " + CurrentStringPrice);
 			String StringCurrentPrice = CharMatcher.inRange('0', '9').retainFrom(CurrentStringPrice);
 			int CurrentIntPrice = Integer.parseInt(StringCurrentPrice.replaceAll("[^0-9]", ""));
-			int UpdatedIntPrice = CurrentIntPrice - 50;
+			int UpdatedIntPrice = CurrentIntPrice - 100;
 			String UpdatedStringPrice = String.valueOf(UpdatedIntPrice);
 			System.out.println("Updated String Price :: " + UpdatedStringPrice);
 			
